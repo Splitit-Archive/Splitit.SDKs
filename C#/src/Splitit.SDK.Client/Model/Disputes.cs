@@ -23,42 +23,34 @@ using SwaggerDateConverter = Splitit.SDK.Client.Client.SwaggerDateConverter;
 namespace Splitit.SDK.Client.Model
 {
     /// <summary>
-    /// PaymentToken
+    /// Disputes
     /// </summary>
     [DataContract]
-    public partial class PaymentToken :  IEquatable<PaymentToken>
+    public partial class Disputes :  IEquatable<Disputes>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentToken" /> class.
+        /// Initializes a new instance of the <see cref="Disputes" /> class.
         /// </summary>
-        /// <param name="token">token.</param>
-        /// <param name="type">type.</param>
-        /// <param name="billingData">billingData.</param>
-        public PaymentToken(string token = default(string), string type = default(string), Object billingData = default(Object))
+        /// <param name="inDispute">inDispute.</param>
+        /// <param name="evidenceProvidedOn">evidenceProvidedOn.</param>
+        public Disputes(bool? inDispute = default(bool?), DateTime? evidenceProvidedOn = default(DateTime?))
         {
-            this.Token = token;
-            this.Type = type;
-            this.BillingData = billingData;
+            this.InDispute = inDispute;
+            this.EvidenceProvidedOn = evidenceProvidedOn;
         }
 
         
         /// <summary>
-        /// Gets or Sets Token
+        /// Gets or Sets InDispute
         /// </summary>
-        [DataMember(Name="Token", EmitDefaultValue=false)]
-        public string Token { get; set; }
+        [DataMember(Name="InDispute", EmitDefaultValue=false)]
+        public bool? InDispute { get; set; }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets EvidenceProvidedOn
         /// </summary>
-        [DataMember(Name="Type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BillingData
-        /// </summary>
-        [DataMember(Name="BillingData", EmitDefaultValue=false)]
-        public Object BillingData { get; set; }
+        [DataMember(Name="EvidenceProvidedOn", EmitDefaultValue=false)]
+        public DateTime? EvidenceProvidedOn { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,10 +59,9 @@ namespace Splitit.SDK.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PaymentToken {\n");
-            sb.Append("  Token: ").Append(Token).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  BillingData: ").Append(BillingData).Append("\n");
+            sb.Append("class Disputes {\n");
+            sb.Append("  InDispute: ").Append(InDispute).Append("\n");
+            sb.Append("  EvidenceProvidedOn: ").Append(EvidenceProvidedOn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,34 +82,29 @@ namespace Splitit.SDK.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaymentToken);
+            return this.Equals(input as Disputes);
         }
 
         /// <summary>
-        /// Returns true if PaymentToken instances are equal
+        /// Returns true if Disputes instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaymentToken to be compared</param>
+        /// <param name="input">Instance of Disputes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaymentToken input)
+        public bool Equals(Disputes input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Token == input.Token ||
-                    (this.Token != null &&
-                    this.Token.Equals(input.Token))
+                    this.InDispute == input.InDispute ||
+                    (this.InDispute != null &&
+                    this.InDispute.Equals(input.InDispute))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.BillingData == input.BillingData ||
-                    (this.BillingData != null &&
-                    this.BillingData.Equals(input.BillingData))
+                    this.EvidenceProvidedOn == input.EvidenceProvidedOn ||
+                    (this.EvidenceProvidedOn != null &&
+                    this.EvidenceProvidedOn.Equals(input.EvidenceProvidedOn))
                 );
         }
 
@@ -131,12 +117,10 @@ namespace Splitit.SDK.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Token != null)
-                    hashCode = hashCode * 59 + this.Token.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.BillingData != null)
-                    hashCode = hashCode * 59 + this.BillingData.GetHashCode();
+                if (this.InDispute != null)
+                    hashCode = hashCode * 59 + this.InDispute.GetHashCode();
+                if (this.EvidenceProvidedOn != null)
+                    hashCode = hashCode * 59 + this.EvidenceProvidedOn.GetHashCode();
                 return hashCode;
             }
         }

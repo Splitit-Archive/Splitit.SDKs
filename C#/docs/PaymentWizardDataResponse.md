@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **IsOpenedInIframe** | **bool?** |  | 
 **Is3dSecureInPopup** | **bool?** |  | [optional] 
 **PaymentFormMessage** | **string** |  | [optional] 
+**SetShortUrl** | **bool?** |  | 
 **ShowAddressElements** | **string** |  | [optional] 
 **CurrencyDisplay** | [**ExtendedCurrency**](ExtendedCurrency.md) |  | [optional] 
 **ForceDisplayImportantNotes** | **bool?** |  | 
@@ -38,6 +39,9 @@ Name | Type | Description | Notes
 **PaymentFormMessages** | [**List&lt;PaymentFormMessage&gt;**](PaymentFormMessage.md) |  | [optional] 
 **DisplayProperties** | **Dictionary&lt;string, string&gt;** |  | [optional] 
 **TermsAndConditions** | [**TermsAndConditions**](TermsAndConditions.md) |  | [optional] 
+**PaymentMethods** | [**List&lt;PaymentMethods&gt;**](PaymentMethods.md) |  | [optional] 
+**Status** | [**InstallmentPlanStatus**](InstallmentPlanStatus.md) |  | 
+**IsAttempt3Dsecure** | **bool?** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

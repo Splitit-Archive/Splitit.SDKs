@@ -48,7 +48,8 @@ namespace Splitit.SDK.Client.Model
         /// <param name="transactionResults">transactionResults.</param>
         /// <param name="cardDetails">cardDetails.</param>
         /// <param name="result">result.</param>
-        public Installment2(int? installmentNumber = default(int?), Money amount = default(Money), Money originalAmount = default(Money), Money refundAmount = default(Money), DateTime? processDateTime = default(DateTime?), bool? isRefund = default(bool?), Money requiredCredit = default(Money), DateTime? createdDateTime = default(DateTime?), ReferenceEntityBase status = default(ReferenceEntityBase), List<TransactionResult> transactionResults = default(List<TransactionResult>), CardData cardDetails = default(CardData), bool? result = default(bool?))
+        /// <param name="paymentMethod">paymentMethod.</param>
+        public Installment2(int? installmentNumber = default(int?), Money amount = default(Money), Money originalAmount = default(Money), Money refundAmount = default(Money), DateTime? processDateTime = default(DateTime?), bool? isRefund = default(bool?), Money requiredCredit = default(Money), DateTime? createdDateTime = default(DateTime?), ReferenceEntityBase status = default(ReferenceEntityBase), List<TransactionResult> transactionResults = default(List<TransactionResult>), CardData cardDetails = default(CardData), bool? result = default(bool?), string paymentMethod = default(string))
         {
             this.InstallmentNumber = installmentNumber;
             this.IsRefund = isRefund;
@@ -62,6 +63,7 @@ namespace Splitit.SDK.Client.Model
             this.TransactionResults = transactionResults;
             this.CardDetails = cardDetails;
             this.Result = result;
+            this.PaymentMethod = paymentMethod;
         }
 
         
@@ -138,6 +140,12 @@ namespace Splitit.SDK.Client.Model
         public bool? Result { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentMethod
+        /// </summary>
+        [DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
+        public string PaymentMethod { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -157,6 +165,7 @@ namespace Splitit.SDK.Client.Model
             sb.Append("  TransactionResults: ").Append(TransactionResults).Append("\n");
             sb.Append("  CardDetails: ").Append(CardDetails).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
+            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -250,6 +259,11 @@ namespace Splitit.SDK.Client.Model
                     this.Result == input.Result ||
                     (this.Result != null &&
                     this.Result.Equals(input.Result))
+                ) && 
+                (
+                    this.PaymentMethod == input.PaymentMethod ||
+                    (this.PaymentMethod != null &&
+                    this.PaymentMethod.Equals(input.PaymentMethod))
                 );
         }
 
@@ -286,6 +300,8 @@ namespace Splitit.SDK.Client.Model
                     hashCode = hashCode * 59 + this.CardDetails.GetHashCode();
                 if (this.Result != null)
                     hashCode = hashCode * 59 + this.Result.GetHashCode();
+                if (this.PaymentMethod != null)
+                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
                 return hashCode;
             }
         }

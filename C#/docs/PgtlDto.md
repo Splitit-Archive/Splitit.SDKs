@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 **Id** | **long?** |  | 
 **Result** | **bool?** |  | 
 **TraceId** | **string** |  | [optional] 
-**CreatedDate** | **string** |  | [optional] 
+**CaptureId** | **string** |  | [optional] 
 **IsChargeback** | **bool?** |  | 
+**CreatedDate** | **string** |  | [optional] 
 **TransactionId** | **string** |  | [optional] 
 **InstallmentPlanId** | **long?** |  | [optional] 
 **CompleteResponseXml** | **string** |  | [optional] 

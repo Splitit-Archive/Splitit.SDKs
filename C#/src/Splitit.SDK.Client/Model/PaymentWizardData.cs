@@ -45,9 +45,11 @@ namespace Splitit.SDK.Client.Model
         /// <param name="isOpenedInIframe">isOpenedInIframe (required).</param>
         /// <param name="is3dSecureInPopup">is3dSecureInPopup.</param>
         /// <param name="paymentFormMessage">paymentFormMessage.</param>
-        public PaymentWizardData(string requestedNumberOfInstallments = default(string), string successExitURL = default(string), string errorExitURL = default(string), string cancelExitURL = default(string), string successAsyncUrl = default(string), string viewName = default(string), bool? isOpenedInIframe = default(bool?), bool? is3dSecureInPopup = default(bool?), string paymentFormMessage = default(string))
+        /// <param name="setShortUrl">setShortUrl (required).</param>
+        public PaymentWizardData(string requestedNumberOfInstallments = default(string), string successExitURL = default(string), string errorExitURL = default(string), string cancelExitURL = default(string), string successAsyncUrl = default(string), string viewName = default(string), bool? isOpenedInIframe = default(bool?), bool? is3dSecureInPopup = default(bool?), string paymentFormMessage = default(string), bool? setShortUrl = default(bool?))
         {
             this.IsOpenedInIframe = isOpenedInIframe;
+            this.SetShortUrl = setShortUrl;
             this.RequestedNumberOfInstallments = requestedNumberOfInstallments;
             this.SuccessExitURL = successExitURL;
             this.ErrorExitURL = errorExitURL;
@@ -114,6 +116,12 @@ namespace Splitit.SDK.Client.Model
         public string PaymentFormMessage { get; set; }
 
         /// <summary>
+        /// Gets or Sets SetShortUrl
+        /// </summary>
+        [DataMember(Name="SetShortUrl", EmitDefaultValue=false)]
+        public bool? SetShortUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,6 +138,7 @@ namespace Splitit.SDK.Client.Model
             sb.Append("  IsOpenedInIframe: ").Append(IsOpenedInIframe).Append("\n");
             sb.Append("  Is3dSecureInPopup: ").Append(Is3dSecureInPopup).Append("\n");
             sb.Append("  PaymentFormMessage: ").Append(PaymentFormMessage).Append("\n");
+            sb.Append("  SetShortUrl: ").Append(SetShortUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +217,11 @@ namespace Splitit.SDK.Client.Model
                     this.PaymentFormMessage == input.PaymentFormMessage ||
                     (this.PaymentFormMessage != null &&
                     this.PaymentFormMessage.Equals(input.PaymentFormMessage))
+                ) && 
+                (
+                    this.SetShortUrl == input.SetShortUrl ||
+                    (this.SetShortUrl != null &&
+                    this.SetShortUrl.Equals(input.SetShortUrl))
                 );
         }
 
@@ -238,6 +252,8 @@ namespace Splitit.SDK.Client.Model
                     hashCode = hashCode * 59 + this.Is3dSecureInPopup.GetHashCode();
                 if (this.PaymentFormMessage != null)
                     hashCode = hashCode * 59 + this.PaymentFormMessage.GetHashCode();
+                if (this.SetShortUrl != null)
+                    hashCode = hashCode * 59 + this.SetShortUrl.GetHashCode();
                 return hashCode;
             }
         }

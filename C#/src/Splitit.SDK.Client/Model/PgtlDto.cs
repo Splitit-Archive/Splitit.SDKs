@@ -44,8 +44,9 @@ namespace Splitit.SDK.Client.Model
         /// <param name="id">id (required).</param>
         /// <param name="result">result (required).</param>
         /// <param name="traceId">traceId.</param>
-        /// <param name="createdDate">createdDate.</param>
+        /// <param name="captureId">captureId.</param>
         /// <param name="isChargeback">isChargeback (required).</param>
+        /// <param name="createdDate">createdDate.</param>
         /// <param name="transactionId">transactionId.</param>
         /// <param name="installmentPlanId">installmentPlanId.</param>
         /// <param name="completeResponseXml">completeResponseXml.</param>
@@ -61,7 +62,7 @@ namespace Splitit.SDK.Client.Model
         /// <param name="resultMessageMessageText">resultMessageMessageText.</param>
         /// <param name="type">type (required).</param>
         /// <param name="referencePaymentGatewayTransactionLogId">referencePaymentGatewayTransactionLogId.</param>
-        public PgtlDto(long? id = default(long?), bool? result = default(bool?), string traceId = default(string), string createdDate = default(string), bool? isChargeback = default(bool?), string transactionId = default(string), long? installmentPlanId = default(long?), string completeResponseXml = default(string), long? terminalGatewayDataId = default(long?), string avsMessageMessageCode = default(string), string avsMessageMessageText = default(string), string cvvMessageMessageCode = default(string), string cvvMessageMessageText = default(string), string requestedCurrencyCode = default(string), decimal? processedAmountAmount = default(decimal?), decimal? requestedAmountAmount = default(decimal?), string resultMessageMessageCode = default(string), string resultMessageMessageText = default(string), OperationType type = default(OperationType), long? referencePaymentGatewayTransactionLogId = default(long?))
+        public PgtlDto(long? id = default(long?), bool? result = default(bool?), string traceId = default(string), string captureId = default(string), bool? isChargeback = default(bool?), string createdDate = default(string), string transactionId = default(string), long? installmentPlanId = default(long?), string completeResponseXml = default(string), long? terminalGatewayDataId = default(long?), string avsMessageMessageCode = default(string), string avsMessageMessageText = default(string), string cvvMessageMessageCode = default(string), string cvvMessageMessageText = default(string), string requestedCurrencyCode = default(string), decimal? processedAmountAmount = default(decimal?), decimal? requestedAmountAmount = default(decimal?), string resultMessageMessageCode = default(string), string resultMessageMessageText = default(string), OperationType type = default(OperationType), long? referencePaymentGatewayTransactionLogId = default(long?))
         {
             this.Id = id;
             this.Result = result;
@@ -71,6 +72,7 @@ namespace Splitit.SDK.Client.Model
             this.RequestedAmountAmount = requestedAmountAmount;
             this.Type = type;
             this.TraceId = traceId;
+            this.CaptureId = captureId;
             this.CreatedDate = createdDate;
             this.TransactionId = transactionId;
             this.InstallmentPlanId = installmentPlanId;
@@ -105,16 +107,22 @@ namespace Splitit.SDK.Client.Model
         public string TraceId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedDate
+        /// Gets or Sets CaptureId
         /// </summary>
-        [DataMember(Name="CreatedDate", EmitDefaultValue=false)]
-        public string CreatedDate { get; set; }
+        [DataMember(Name="CaptureId", EmitDefaultValue=false)]
+        public string CaptureId { get; set; }
 
         /// <summary>
         /// Gets or Sets IsChargeback
         /// </summary>
         [DataMember(Name="IsChargeback", EmitDefaultValue=false)]
         public bool? IsChargeback { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CreatedDate
+        /// </summary>
+        [DataMember(Name="CreatedDate", EmitDefaultValue=false)]
+        public string CreatedDate { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionId
@@ -212,8 +220,9 @@ namespace Splitit.SDK.Client.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Result: ").Append(Result).Append("\n");
             sb.Append("  TraceId: ").Append(TraceId).Append("\n");
-            sb.Append("  CreatedDate: ").Append(CreatedDate).Append("\n");
+            sb.Append("  CaptureId: ").Append(CaptureId).Append("\n");
             sb.Append("  IsChargeback: ").Append(IsChargeback).Append("\n");
+            sb.Append("  CreatedDate: ").Append(CreatedDate).Append("\n");
             sb.Append("  TransactionId: ").Append(TransactionId).Append("\n");
             sb.Append("  InstallmentPlanId: ").Append(InstallmentPlanId).Append("\n");
             sb.Append("  CompleteResponseXml: ").Append(CompleteResponseXml).Append("\n");
@@ -279,14 +288,19 @@ namespace Splitit.SDK.Client.Model
                     this.TraceId.Equals(input.TraceId))
                 ) && 
                 (
-                    this.CreatedDate == input.CreatedDate ||
-                    (this.CreatedDate != null &&
-                    this.CreatedDate.Equals(input.CreatedDate))
+                    this.CaptureId == input.CaptureId ||
+                    (this.CaptureId != null &&
+                    this.CaptureId.Equals(input.CaptureId))
                 ) && 
                 (
                     this.IsChargeback == input.IsChargeback ||
                     (this.IsChargeback != null &&
                     this.IsChargeback.Equals(input.IsChargeback))
+                ) && 
+                (
+                    this.CreatedDate == input.CreatedDate ||
+                    (this.CreatedDate != null &&
+                    this.CreatedDate.Equals(input.CreatedDate))
                 ) && 
                 (
                     this.TransactionId == input.TransactionId ||
@@ -380,10 +394,12 @@ namespace Splitit.SDK.Client.Model
                     hashCode = hashCode * 59 + this.Result.GetHashCode();
                 if (this.TraceId != null)
                     hashCode = hashCode * 59 + this.TraceId.GetHashCode();
-                if (this.CreatedDate != null)
-                    hashCode = hashCode * 59 + this.CreatedDate.GetHashCode();
+                if (this.CaptureId != null)
+                    hashCode = hashCode * 59 + this.CaptureId.GetHashCode();
                 if (this.IsChargeback != null)
                     hashCode = hashCode * 59 + this.IsChargeback.GetHashCode();
+                if (this.CreatedDate != null)
+                    hashCode = hashCode * 59 + this.CreatedDate.GetHashCode();
                 if (this.TransactionId != null)
                     hashCode = hashCode * 59 + this.TransactionId.GetHashCode();
                 if (this.InstallmentPlanId != null)

@@ -77,7 +77,13 @@ namespace Splitit.SDK.Client.Model
         /// Enum SecuredPlan3B for value: SecuredPlan3B
         /// </summary>
         [EnumMember(Value = "SecuredPlan3B")]
-        SecuredPlan3B = 8
+        SecuredPlan3B = 8,
+        
+        /// <summary>
+        /// Enum SecuredPlan2A for value: SecuredPlan2A
+        /// </summary>
+        [EnumMember(Value = "SecuredPlan2A")]
+        SecuredPlan2A = 9
     }
 
 }

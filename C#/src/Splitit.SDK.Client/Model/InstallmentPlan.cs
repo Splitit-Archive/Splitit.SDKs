@@ -50,6 +50,7 @@ namespace Splitit.SDK.Client.Model
         /// <param name="installmentPlanStatus">installmentPlanStatus.</param>
         /// <param name="amount">amount.</param>
         /// <param name="outstandingAmount">outstandingAmount.</param>
+        /// <param name="disputes">disputes.</param>
         /// <param name="numberOfInstallments">numberOfInstallments (required).</param>
         /// <param name="numberOfProcessedInstallments">numberOfProcessedInstallments (required).</param>
         /// <param name="originalAmount">originalAmount.</param>
@@ -75,7 +76,9 @@ namespace Splitit.SDK.Client.Model
         /// <param name="secureAuthorizations">secureAuthorizations.</param>
         /// <param name="logoUrl">logoUrl.</param>
         /// <param name="isInAutoRetry">isInAutoRetry (required).</param>
-        public InstallmentPlan(string installmentPlanNumber = default(string), ReferenceEntityBase installmentPlanStatus = default(ReferenceEntityBase), Money amount = default(Money), Money outstandingAmount = default(Money), int? numberOfInstallments = default(int?), int? numberOfProcessedInstallments = default(int?), Money originalAmount = default(Money), Money refundAmount = default(Money), ConsumerData consumer = default(ConsumerData), CardData activeCard = default(CardData), FraudCheck fraudCheck = default(FraudCheck), MerchantRef merchant = default(MerchantRef), string refOrderNumber = default(string), ReferenceEntityBase purchaseMethod = default(ReferenceEntityBase), ReferenceEntityBase strategy = default(ReferenceEntityBase), ReferenceEntityBase delayResolution = default(ReferenceEntityBase), Dictionary<string, string> extendedParams = default(Dictionary<string, string>), bool? isFullCaptured = default(bool?), bool? isChargedBack = default(bool?), bool? arePaymentsOnHold = default(bool?), decimal? scpFundingPercent = default(decimal?), MoneyFlows fundingStatus = default(MoneyFlows), TestModes testMode = default(TestModes), DateTime? creationDateTime = default(DateTime?), DateTime? lifeTimeUrlExpirationTime = default(DateTime?), List<Installment2> installments = default(List<Installment2>), List<ReAuthorization> secureAuthorizations = default(List<ReAuthorization>), string logoUrl = default(string), bool? isInAutoRetry = default(bool?))
+        /// <param name="paymentMethod">paymentMethod.</param>
+        /// <param name="allowCardUpdateOnSplititPortals">allowCardUpdateOnSplititPortals (required).</param>
+        public InstallmentPlan(string installmentPlanNumber = default(string), ReferenceEntityBase installmentPlanStatus = default(ReferenceEntityBase), Money amount = default(Money), Money outstandingAmount = default(Money), Disputes disputes = default(Disputes), int? numberOfInstallments = default(int?), int? numberOfProcessedInstallments = default(int?), Money originalAmount = default(Money), Money refundAmount = default(Money), ConsumerData consumer = default(ConsumerData), CardData activeCard = default(CardData), FraudCheck fraudCheck = default(FraudCheck), MerchantRef merchant = default(MerchantRef), string refOrderNumber = default(string), ReferenceEntityBase purchaseMethod = default(ReferenceEntityBase), ReferenceEntityBase strategy = default(ReferenceEntityBase), ReferenceEntityBase delayResolution = default(ReferenceEntityBase), Dictionary<string, string> extendedParams = default(Dictionary<string, string>), bool? isFullCaptured = default(bool?), bool? isChargedBack = default(bool?), bool? arePaymentsOnHold = default(bool?), decimal? scpFundingPercent = default(decimal?), MoneyFlows fundingStatus = default(MoneyFlows), TestModes testMode = default(TestModes), DateTime? creationDateTime = default(DateTime?), DateTime? lifeTimeUrlExpirationTime = default(DateTime?), List<Installment2> installments = default(List<Installment2>), List<ReAuthorization> secureAuthorizations = default(List<ReAuthorization>), string logoUrl = default(string), bool? isInAutoRetry = default(bool?), string paymentMethod = default(string), bool? allowCardUpdateOnSplititPortals = default(bool?))
         {
             this.NumberOfInstallments = numberOfInstallments;
             this.NumberOfProcessedInstallments = numberOfProcessedInstallments;
@@ -88,10 +91,12 @@ namespace Splitit.SDK.Client.Model
             this.CreationDateTime = creationDateTime;
             this.LifeTimeUrlExpirationTime = lifeTimeUrlExpirationTime;
             this.IsInAutoRetry = isInAutoRetry;
+            this.AllowCardUpdateOnSplititPortals = allowCardUpdateOnSplititPortals;
             this.InstallmentPlanNumber = installmentPlanNumber;
             this.InstallmentPlanStatus = installmentPlanStatus;
             this.Amount = amount;
             this.OutstandingAmount = outstandingAmount;
+            this.Disputes = disputes;
             this.OriginalAmount = originalAmount;
             this.RefundAmount = refundAmount;
             this.Consumer = consumer;
@@ -106,6 +111,7 @@ namespace Splitit.SDK.Client.Model
             this.Installments = installments;
             this.SecureAuthorizations = secureAuthorizations;
             this.LogoUrl = logoUrl;
+            this.PaymentMethod = paymentMethod;
         }
 
         
@@ -132,6 +138,12 @@ namespace Splitit.SDK.Client.Model
         /// </summary>
         [DataMember(Name="OutstandingAmount", EmitDefaultValue=false)]
         public Money OutstandingAmount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Disputes
+        /// </summary>
+        [DataMember(Name="Disputes", EmitDefaultValue=false)]
+        public Disputes Disputes { get; set; }
 
         /// <summary>
         /// Gets or Sets NumberOfInstallments
@@ -274,6 +286,18 @@ namespace Splitit.SDK.Client.Model
         public bool? IsInAutoRetry { get; set; }
 
         /// <summary>
+        /// Gets or Sets PaymentMethod
+        /// </summary>
+        [DataMember(Name="PaymentMethod", EmitDefaultValue=false)]
+        public string PaymentMethod { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AllowCardUpdateOnSplititPortals
+        /// </summary>
+        [DataMember(Name="AllowCardUpdateOnSplititPortals", EmitDefaultValue=false)]
+        public bool? AllowCardUpdateOnSplititPortals { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -285,6 +309,7 @@ namespace Splitit.SDK.Client.Model
             sb.Append("  InstallmentPlanStatus: ").Append(InstallmentPlanStatus).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  OutstandingAmount: ").Append(OutstandingAmount).Append("\n");
+            sb.Append("  Disputes: ").Append(Disputes).Append("\n");
             sb.Append("  NumberOfInstallments: ").Append(NumberOfInstallments).Append("\n");
             sb.Append("  NumberOfProcessedInstallments: ").Append(NumberOfProcessedInstallments).Append("\n");
             sb.Append("  OriginalAmount: ").Append(OriginalAmount).Append("\n");
@@ -310,6 +335,8 @@ namespace Splitit.SDK.Client.Model
             sb.Append("  SecureAuthorizations: ").Append(SecureAuthorizations).Append("\n");
             sb.Append("  LogoUrl: ").Append(LogoUrl).Append("\n");
             sb.Append("  IsInAutoRetry: ").Append(IsInAutoRetry).Append("\n");
+            sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            sb.Append("  AllowCardUpdateOnSplititPortals: ").Append(AllowCardUpdateOnSplititPortals).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -363,6 +390,11 @@ namespace Splitit.SDK.Client.Model
                     this.OutstandingAmount == input.OutstandingAmount ||
                     (this.OutstandingAmount != null &&
                     this.OutstandingAmount.Equals(input.OutstandingAmount))
+                ) && 
+                (
+                    this.Disputes == input.Disputes ||
+                    (this.Disputes != null &&
+                    this.Disputes.Equals(input.Disputes))
                 ) && 
                 (
                     this.NumberOfInstallments == input.NumberOfInstallments ||
@@ -488,6 +520,16 @@ namespace Splitit.SDK.Client.Model
                     this.IsInAutoRetry == input.IsInAutoRetry ||
                     (this.IsInAutoRetry != null &&
                     this.IsInAutoRetry.Equals(input.IsInAutoRetry))
+                ) && 
+                (
+                    this.PaymentMethod == input.PaymentMethod ||
+                    (this.PaymentMethod != null &&
+                    this.PaymentMethod.Equals(input.PaymentMethod))
+                ) && 
+                (
+                    this.AllowCardUpdateOnSplititPortals == input.AllowCardUpdateOnSplititPortals ||
+                    (this.AllowCardUpdateOnSplititPortals != null &&
+                    this.AllowCardUpdateOnSplititPortals.Equals(input.AllowCardUpdateOnSplititPortals))
                 );
         }
 
@@ -508,6 +550,8 @@ namespace Splitit.SDK.Client.Model
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.OutstandingAmount != null)
                     hashCode = hashCode * 59 + this.OutstandingAmount.GetHashCode();
+                if (this.Disputes != null)
+                    hashCode = hashCode * 59 + this.Disputes.GetHashCode();
                 if (this.NumberOfInstallments != null)
                     hashCode = hashCode * 59 + this.NumberOfInstallments.GetHashCode();
                 if (this.NumberOfProcessedInstallments != null)
@@ -558,6 +602,10 @@ namespace Splitit.SDK.Client.Model
                     hashCode = hashCode * 59 + this.LogoUrl.GetHashCode();
                 if (this.IsInAutoRetry != null)
                     hashCode = hashCode * 59 + this.IsInAutoRetry.GetHashCode();
+                if (this.PaymentMethod != null)
+                    hashCode = hashCode * 59 + this.PaymentMethod.GetHashCode();
+                if (this.AllowCardUpdateOnSplititPortals != null)
+                    hashCode = hashCode * 59 + this.AllowCardUpdateOnSplititPortals.GetHashCode();
                 return hashCode;
             }
         }

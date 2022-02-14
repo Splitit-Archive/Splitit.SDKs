@@ -29,6 +29,11 @@ namespace Splitit.SDK.Client.Model
     public partial class TransactionResult :  IEquatable<TransactionResult>
     {
         /// <summary>
+        /// Gets or Sets DisputeStatus
+        /// </summary>
+        [DataMember(Name="DisputeStatus", EmitDefaultValue=false)]
+        public DisputeStatus? DisputeStatus { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="TransactionResult" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -46,7 +51,9 @@ namespace Splitit.SDK.Client.Model
         /// <param name="isChargeback">isChargeback (required).</param>
         /// <param name="aVSResult">aVSResult.</param>
         /// <param name="cVCResult">cVCResult.</param>
-        public TransactionResult(string gatewayTransactionId = default(string), long? splititTransactionId = default(long?), string gatewayResultCode = default(string), string gatewayResultMessage = default(string), ReferenceEntityBase operationType = default(ReferenceEntityBase), bool? gatewayResult = default(bool?), DateTime? gatewayTransactionDate = default(DateTime?), bool? isChargeback = default(bool?), CardResult aVSResult = default(CardResult), CardResult cVCResult = default(CardResult))
+        /// <param name="isInDispute">isInDispute.</param>
+        /// <param name="disputeStatus">disputeStatus.</param>
+        public TransactionResult(string gatewayTransactionId = default(string), long? splititTransactionId = default(long?), string gatewayResultCode = default(string), string gatewayResultMessage = default(string), ReferenceEntityBase operationType = default(ReferenceEntityBase), bool? gatewayResult = default(bool?), DateTime? gatewayTransactionDate = default(DateTime?), bool? isChargeback = default(bool?), CardResult aVSResult = default(CardResult), CardResult cVCResult = default(CardResult), bool? isInDispute = default(bool?), DisputeStatus? disputeStatus = default(DisputeStatus?))
         {
             this.SplititTransactionId = splititTransactionId;
             this.GatewayResult = gatewayResult;
@@ -58,6 +65,8 @@ namespace Splitit.SDK.Client.Model
             this.OperationType = operationType;
             this.AVSResult = aVSResult;
             this.CVCResult = cVCResult;
+            this.IsInDispute = isInDispute;
+            this.DisputeStatus = disputeStatus;
         }
 
         
@@ -122,6 +131,13 @@ namespace Splitit.SDK.Client.Model
         public CardResult CVCResult { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsInDispute
+        /// </summary>
+        [DataMember(Name="IsInDispute", EmitDefaultValue=false)]
+        public bool? IsInDispute { get; set; }
+
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -139,6 +155,8 @@ namespace Splitit.SDK.Client.Model
             sb.Append("  IsChargeback: ").Append(IsChargeback).Append("\n");
             sb.Append("  AVSResult: ").Append(AVSResult).Append("\n");
             sb.Append("  CVCResult: ").Append(CVCResult).Append("\n");
+            sb.Append("  IsInDispute: ").Append(IsInDispute).Append("\n");
+            sb.Append("  DisputeStatus: ").Append(DisputeStatus).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -222,6 +240,16 @@ namespace Splitit.SDK.Client.Model
                     this.CVCResult == input.CVCResult ||
                     (this.CVCResult != null &&
                     this.CVCResult.Equals(input.CVCResult))
+                ) && 
+                (
+                    this.IsInDispute == input.IsInDispute ||
+                    (this.IsInDispute != null &&
+                    this.IsInDispute.Equals(input.IsInDispute))
+                ) && 
+                (
+                    this.DisputeStatus == input.DisputeStatus ||
+                    (this.DisputeStatus != null &&
+                    this.DisputeStatus.Equals(input.DisputeStatus))
                 );
         }
 
@@ -254,6 +282,10 @@ namespace Splitit.SDK.Client.Model
                     hashCode = hashCode * 59 + this.AVSResult.GetHashCode();
                 if (this.CVCResult != null)
                     hashCode = hashCode * 59 + this.CVCResult.GetHashCode();
+                if (this.IsInDispute != null)
+                    hashCode = hashCode * 59 + this.IsInDispute.GetHashCode();
+                if (this.DisputeStatus != null)
+                    hashCode = hashCode * 59 + this.DisputeStatus.GetHashCode();
                 return hashCode;
             }
         }
