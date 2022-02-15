@@ -14,22 +14,21 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 var runtime_1 = require("../runtime");
-function PaymentTokenFromJSON(json) {
-    return PaymentTokenFromJSONTyped(json, false);
+function DisputesFromJSON(json) {
+    return DisputesFromJSONTyped(json, false);
 }
-exports.PaymentTokenFromJSON = PaymentTokenFromJSON;
-function PaymentTokenFromJSONTyped(json, ignoreDiscriminator) {
+exports.DisputesFromJSON = DisputesFromJSON;
+function DisputesFromJSONTyped(json, ignoreDiscriminator) {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
-        'token': !runtime_1.exists(json, 'Token') ? undefined : json['Token'],
-        'type': !runtime_1.exists(json, 'Type') ? undefined : json['Type'],
-        'billingData': !runtime_1.exists(json, 'BillingData') ? undefined : json['BillingData'],
+        'inDispute': !runtime_1.exists(json, 'InDispute') ? undefined : json['InDispute'],
+        'evidenceProvidedOn': !runtime_1.exists(json, 'EvidenceProvidedOn') ? undefined : (new Date(json['EvidenceProvidedOn'])),
     };
 }
-exports.PaymentTokenFromJSONTyped = PaymentTokenFromJSONTyped;
-function PaymentTokenToJSON(value) {
+exports.DisputesFromJSONTyped = DisputesFromJSONTyped;
+function DisputesToJSON(value) {
     if (value === undefined) {
         return undefined;
     }
@@ -37,9 +36,8 @@ function PaymentTokenToJSON(value) {
         return null;
     }
     return {
-        'Token': value.token,
-        'Type': value.type,
-        'BillingData': value.billingData,
+        'InDispute': value.inDispute,
+        'EvidenceProvidedOn': value.evidenceProvidedOn === undefined ? undefined : (value.evidenceProvidedOn.toISOString()),
     };
 }
-exports.PaymentTokenToJSON = PaymentTokenToJSON;
+exports.DisputesToJSON = DisputesToJSON;

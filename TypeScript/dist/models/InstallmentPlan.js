@@ -28,6 +28,7 @@ function InstallmentPlanFromJSONTyped(json, ignoreDiscriminator) {
         'installmentPlanStatus': !runtime_1.exists(json, 'InstallmentPlanStatus') ? undefined : _1.ReferenceEntityBaseFromJSON(json['InstallmentPlanStatus']),
         'amount': !runtime_1.exists(json, 'Amount') ? undefined : _1.MoneyFromJSON(json['Amount']),
         'outstandingAmount': !runtime_1.exists(json, 'OutstandingAmount') ? undefined : _1.MoneyFromJSON(json['OutstandingAmount']),
+        'disputes': !runtime_1.exists(json, 'Disputes') ? undefined : _1.DisputesFromJSON(json['Disputes']),
         'numberOfInstallments': json['NumberOfInstallments'],
         'numberOfProcessedInstallments': json['NumberOfProcessedInstallments'],
         'originalAmount': !runtime_1.exists(json, 'OriginalAmount') ? undefined : _1.MoneyFromJSON(json['OriginalAmount']),
@@ -53,6 +54,8 @@ function InstallmentPlanFromJSONTyped(json, ignoreDiscriminator) {
         'secureAuthorizations': !runtime_1.exists(json, 'SecureAuthorizations') ? undefined : (json['SecureAuthorizations'].map(_1.ReAuthorizationFromJSON)),
         'logoUrl': !runtime_1.exists(json, 'LogoUrl') ? undefined : json['LogoUrl'],
         'isInAutoRetry': json['IsInAutoRetry'],
+        'paymentMethod': !runtime_1.exists(json, 'PaymentMethod') ? undefined : json['PaymentMethod'],
+        'allowCardUpdateOnSplititPortals': json['AllowCardUpdateOnSplititPortals'],
     };
 }
 exports.InstallmentPlanFromJSONTyped = InstallmentPlanFromJSONTyped;
@@ -68,6 +71,7 @@ function InstallmentPlanToJSON(value) {
         'InstallmentPlanStatus': _1.ReferenceEntityBaseToJSON(value.installmentPlanStatus),
         'Amount': _1.MoneyToJSON(value.amount),
         'OutstandingAmount': _1.MoneyToJSON(value.outstandingAmount),
+        'Disputes': _1.DisputesToJSON(value.disputes),
         'NumberOfInstallments': value.numberOfInstallments,
         'NumberOfProcessedInstallments': value.numberOfProcessedInstallments,
         'OriginalAmount': _1.MoneyToJSON(value.originalAmount),
@@ -93,6 +97,8 @@ function InstallmentPlanToJSON(value) {
         'SecureAuthorizations': value.secureAuthorizations === undefined ? undefined : (value.secureAuthorizations.map(_1.ReAuthorizationToJSON)),
         'LogoUrl': value.logoUrl,
         'IsInAutoRetry': value.isInAutoRetry,
+        'PaymentMethod': value.paymentMethod,
+        'AllowCardUpdateOnSplititPortals': value.allowCardUpdateOnSplititPortals,
     };
 }
 exports.InstallmentPlanToJSON = InstallmentPlanToJSON;

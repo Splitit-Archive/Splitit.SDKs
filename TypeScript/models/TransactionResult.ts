@@ -18,6 +18,10 @@ import {
     CardResultFromJSON,
     CardResultFromJSONTyped,
     CardResultToJSON,
+    DisputeStatus,
+    DisputeStatusFromJSON,
+    DisputeStatusFromJSONTyped,
+    DisputeStatusToJSON,
     ReferenceEntityBase,
     ReferenceEntityBaseFromJSON,
     ReferenceEntityBaseFromJSONTyped,
@@ -90,6 +94,18 @@ export interface TransactionResult {
      * @memberof TransactionResult
      */
     cVCResult?: CardResult;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof TransactionResult
+     */
+    isInDispute?: boolean;
+    /**
+     * 
+     * @type {DisputeStatus}
+     * @memberof TransactionResult
+     */
+    disputeStatus?: DisputeStatus;
 }
 
 export function TransactionResultFromJSON(json: any): TransactionResult {
@@ -112,6 +128,8 @@ export function TransactionResultFromJSONTyped(json: any, ignoreDiscriminator: b
         'isChargeback': json['IsChargeback'],
         'aVSResult': !exists(json, 'AVSResult') ? undefined : CardResultFromJSON(json['AVSResult']),
         'cVCResult': !exists(json, 'CVCResult') ? undefined : CardResultFromJSON(json['CVCResult']),
+        'isInDispute': !exists(json, 'IsInDispute') ? undefined : json['IsInDispute'],
+        'disputeStatus': !exists(json, 'DisputeStatus') ? undefined : DisputeStatusFromJSON(json['DisputeStatus']),
     };
 }
 
@@ -134,6 +152,8 @@ export function TransactionResultToJSON(value?: TransactionResult | null): any {
         'IsChargeback': value.isChargeback,
         'AVSResult': CardResultToJSON(value.aVSResult),
         'CVCResult': CardResultToJSON(value.cVCResult),
+        'IsInDispute': value.isInDispute,
+        'DisputeStatus': DisputeStatusToJSON(value.disputeStatus),
     };
 }
 

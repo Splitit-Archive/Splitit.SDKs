@@ -39,13 +39,19 @@ export interface PgtlDto {
      * @type {string}
      * @memberof PgtlDto
      */
-    createdDate?: string;
+    captureId?: string;
     /**
      *
      * @type {boolean}
      * @memberof PgtlDto
      */
     isChargeback: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof PgtlDto
+     */
+    createdDate?: string;
     /**
      *
      * @type {string}

@@ -26,10 +26,18 @@ import {
     ExtendedCurrencyFromJSON,
     ExtendedCurrencyFromJSONTyped,
     ExtendedCurrencyToJSON,
+    InstallmentPlanStatus,
+    InstallmentPlanStatusFromJSON,
+    InstallmentPlanStatusFromJSONTyped,
+    InstallmentPlanStatusToJSON,
     PaymentFormMessage,
     PaymentFormMessageFromJSON,
     PaymentFormMessageFromJSONTyped,
     PaymentFormMessageToJSON,
+    PaymentMethods,
+    PaymentMethodsFromJSON,
+    PaymentMethodsFromJSONTyped,
+    PaymentMethodsToJSON,
     TermsAndConditions,
     TermsAndConditionsFromJSON,
     TermsAndConditionsFromJSONTyped,
@@ -198,6 +206,24 @@ export interface PaymentWizardDataResponseAllOf {
      * @memberof PaymentWizardDataResponseAllOf
      */
     termsAndConditions?: TermsAndConditions;
+    /**
+     * 
+     * @type {Array<PaymentMethods>}
+     * @memberof PaymentWizardDataResponseAllOf
+     */
+    paymentMethods?: Array<PaymentMethods>;
+    /**
+     * 
+     * @type {InstallmentPlanStatus}
+     * @memberof PaymentWizardDataResponseAllOf
+     */
+    status: InstallmentPlanStatus;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PaymentWizardDataResponseAllOf
+     */
+    isAttempt3Dsecure: boolean;
 }
 
 export function PaymentWizardDataResponseAllOfFromJSON(json: any): PaymentWizardDataResponseAllOf {
@@ -236,6 +262,9 @@ export function PaymentWizardDataResponseAllOfFromJSONTyped(json: any, ignoreDis
         'paymentFormMessages': !exists(json, 'PaymentFormMessages') ? undefined : ((json['PaymentFormMessages'] as Array<any>).map(PaymentFormMessageFromJSON)),
         'displayProperties': !exists(json, 'DisplayProperties') ? undefined : json['DisplayProperties'],
         'termsAndConditions': !exists(json, 'TermsAndConditions') ? undefined : TermsAndConditionsFromJSON(json['TermsAndConditions']),
+        'paymentMethods': !exists(json, 'PaymentMethods') ? undefined : ((json['PaymentMethods'] as Array<any>).map(PaymentMethodsFromJSON)),
+        'status': InstallmentPlanStatusFromJSON(json['Status']),
+        'isAttempt3Dsecure': json['IsAttempt3Dsecure'],
     };
 }
 
@@ -274,6 +303,9 @@ export function PaymentWizardDataResponseAllOfToJSON(value?: PaymentWizardDataRe
         'PaymentFormMessages': value.paymentFormMessages === undefined ? undefined : ((value.paymentFormMessages as Array<any>).map(PaymentFormMessageToJSON)),
         'DisplayProperties': value.displayProperties,
         'TermsAndConditions': TermsAndConditionsToJSON(value.termsAndConditions),
+        'PaymentMethods': value.paymentMethods === undefined ? undefined : ((value.paymentMethods as Array<any>).map(PaymentMethodsToJSON)),
+        'Status': InstallmentPlanStatusToJSON(value.status),
+        'IsAttempt3Dsecure': value.isAttempt3Dsecure,
     };
 }
 

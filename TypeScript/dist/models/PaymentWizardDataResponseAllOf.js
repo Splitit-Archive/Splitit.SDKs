@@ -50,6 +50,9 @@ function PaymentWizardDataResponseAllOfFromJSONTyped(json, ignoreDiscriminator) 
         'paymentFormMessages': !runtime_1.exists(json, 'PaymentFormMessages') ? undefined : (json['PaymentFormMessages'].map(_1.PaymentFormMessageFromJSON)),
         'displayProperties': !runtime_1.exists(json, 'DisplayProperties') ? undefined : json['DisplayProperties'],
         'termsAndConditions': !runtime_1.exists(json, 'TermsAndConditions') ? undefined : _1.TermsAndConditionsFromJSON(json['TermsAndConditions']),
+        'paymentMethods': !runtime_1.exists(json, 'PaymentMethods') ? undefined : (json['PaymentMethods'].map(_1.PaymentMethodsFromJSON)),
+        'status': _1.InstallmentPlanStatusFromJSON(json['Status']),
+        'isAttempt3Dsecure': json['IsAttempt3Dsecure'],
     };
 }
 exports.PaymentWizardDataResponseAllOfFromJSONTyped = PaymentWizardDataResponseAllOfFromJSONTyped;
@@ -87,6 +90,9 @@ function PaymentWizardDataResponseAllOfToJSON(value) {
         'PaymentFormMessages': value.paymentFormMessages === undefined ? undefined : (value.paymentFormMessages.map(_1.PaymentFormMessageToJSON)),
         'DisplayProperties': value.displayProperties,
         'TermsAndConditions': _1.TermsAndConditionsToJSON(value.termsAndConditions),
+        'PaymentMethods': value.paymentMethods === undefined ? undefined : (value.paymentMethods.map(_1.PaymentMethodsToJSON)),
+        'Status': _1.InstallmentPlanStatusToJSON(value.status),
+        'IsAttempt3Dsecure': value.isAttempt3Dsecure,
     };
 }
 exports.PaymentWizardDataResponseAllOfToJSON = PaymentWizardDataResponseAllOfToJSON;

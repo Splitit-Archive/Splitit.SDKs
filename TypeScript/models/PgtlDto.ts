@@ -49,13 +49,19 @@ export interface PgtlDto {
      * @type {string}
      * @memberof PgtlDto
      */
-    createdDate?: string;
+    captureId?: string;
     /**
      * 
      * @type {boolean}
      * @memberof PgtlDto
      */
     isChargeback: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof PgtlDto
+     */
+    createdDate?: string;
     /**
      * 
      * @type {string}
@@ -161,8 +167,9 @@ export function PgtlDtoFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'id': json['Id'],
         'result': json['Result'],
         'traceId': !exists(json, 'TraceId') ? undefined : json['TraceId'],
-        'createdDate': !exists(json, 'CreatedDate') ? undefined : json['CreatedDate'],
+        'captureId': !exists(json, 'CaptureId') ? undefined : json['CaptureId'],
         'isChargeback': json['IsChargeback'],
+        'createdDate': !exists(json, 'CreatedDate') ? undefined : json['CreatedDate'],
         'transactionId': !exists(json, 'TransactionId') ? undefined : json['TransactionId'],
         'installmentPlanId': !exists(json, 'InstallmentPlanId') ? undefined : json['InstallmentPlanId'],
         'completeResponseXml': !exists(json, 'CompleteResponseXml') ? undefined : json['CompleteResponseXml'],
@@ -193,8 +200,9 @@ export function PgtlDtoToJSON(value?: PgtlDto | null): any {
         'Id': value.id,
         'Result': value.result,
         'TraceId': value.traceId,
-        'CreatedDate': value.createdDate,
+        'CaptureId': value.captureId,
         'IsChargeback': value.isChargeback,
+        'CreatedDate': value.createdDate,
         'TransactionId': value.transactionId,
         'InstallmentPlanId': value.installmentPlanId,
         'CompleteResponseXml': value.completeResponseXml,

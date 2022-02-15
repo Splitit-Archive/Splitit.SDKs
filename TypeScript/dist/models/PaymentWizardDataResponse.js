@@ -33,6 +33,7 @@ function PaymentWizardDataResponseFromJSONTyped(json, ignoreDiscriminator) {
         'isOpenedInIframe': json['IsOpenedInIframe'],
         'is3dSecureInPopup': !runtime_1.exists(json, 'Is3dSecureInPopup') ? undefined : json['Is3dSecureInPopup'],
         'paymentFormMessage': !runtime_1.exists(json, 'PaymentFormMessage') ? undefined : json['PaymentFormMessage'],
+        'setShortUrl': json['SetShortUrl'],
         'showAddressElements': !runtime_1.exists(json, 'ShowAddressElements') ? undefined : json['ShowAddressElements'],
         'currencyDisplay': !runtime_1.exists(json, 'CurrencyDisplay') ? undefined : _1.ExtendedCurrencyFromJSON(json['CurrencyDisplay']),
         'forceDisplayImportantNotes': json['ForceDisplayImportantNotes'],
@@ -59,6 +60,9 @@ function PaymentWizardDataResponseFromJSONTyped(json, ignoreDiscriminator) {
         'paymentFormMessages': !runtime_1.exists(json, 'PaymentFormMessages') ? undefined : (json['PaymentFormMessages'].map(_1.PaymentFormMessageFromJSON)),
         'displayProperties': !runtime_1.exists(json, 'DisplayProperties') ? undefined : json['DisplayProperties'],
         'termsAndConditions': !runtime_1.exists(json, 'TermsAndConditions') ? undefined : _1.TermsAndConditionsFromJSON(json['TermsAndConditions']),
+        'paymentMethods': !runtime_1.exists(json, 'PaymentMethods') ? undefined : (json['PaymentMethods'].map(_1.PaymentMethodsFromJSON)),
+        'status': _1.InstallmentPlanStatusFromJSON(json['Status']),
+        'isAttempt3Dsecure': json['IsAttempt3Dsecure'],
     };
 }
 exports.PaymentWizardDataResponseFromJSONTyped = PaymentWizardDataResponseFromJSONTyped;
@@ -79,6 +83,7 @@ function PaymentWizardDataResponseToJSON(value) {
         'IsOpenedInIframe': value.isOpenedInIframe,
         'Is3dSecureInPopup': value.is3dSecureInPopup,
         'PaymentFormMessage': value.paymentFormMessage,
+        'SetShortUrl': value.setShortUrl,
         'ShowAddressElements': value.showAddressElements,
         'CurrencyDisplay': _1.ExtendedCurrencyToJSON(value.currencyDisplay),
         'ForceDisplayImportantNotes': value.forceDisplayImportantNotes,
@@ -105,6 +110,9 @@ function PaymentWizardDataResponseToJSON(value) {
         'PaymentFormMessages': value.paymentFormMessages === undefined ? undefined : (value.paymentFormMessages.map(_1.PaymentFormMessageToJSON)),
         'DisplayProperties': value.displayProperties,
         'TermsAndConditions': _1.TermsAndConditionsToJSON(value.termsAndConditions),
+        'PaymentMethods': value.paymentMethods === undefined ? undefined : (value.paymentMethods.map(_1.PaymentMethodsToJSON)),
+        'Status': _1.InstallmentPlanStatusToJSON(value.status),
+        'IsAttempt3Dsecure': value.isAttempt3Dsecure,
     };
 }
 exports.PaymentWizardDataResponseToJSON = PaymentWizardDataResponseToJSON;

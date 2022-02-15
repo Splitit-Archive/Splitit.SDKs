@@ -73,6 +73,12 @@ export interface PaymentWizardData {
      * @memberof PaymentWizardData
      */
     paymentFormMessage?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PaymentWizardData
+     */
+    setShortUrl: boolean;
 }
 
 export function PaymentWizardDataFromJSON(json: any): PaymentWizardData {
@@ -94,6 +100,7 @@ export function PaymentWizardDataFromJSONTyped(json: any, ignoreDiscriminator: b
         'isOpenedInIframe': json['IsOpenedInIframe'],
         'is3dSecureInPopup': !exists(json, 'Is3dSecureInPopup') ? undefined : json['Is3dSecureInPopup'],
         'paymentFormMessage': !exists(json, 'PaymentFormMessage') ? undefined : json['PaymentFormMessage'],
+        'setShortUrl': json['SetShortUrl'],
     };
 }
 
@@ -115,6 +122,7 @@ export function PaymentWizardDataToJSON(value?: PaymentWizardData | null): any {
         'IsOpenedInIframe': value.isOpenedInIframe,
         'Is3dSecureInPopup': value.is3dSecureInPopup,
         'PaymentFormMessage': value.paymentFormMessage,
+        'SetShortUrl': value.setShortUrl,
     };
 }
 

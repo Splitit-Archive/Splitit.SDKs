@@ -34,6 +34,8 @@ function TransactionResultFromJSONTyped(json, ignoreDiscriminator) {
         'isChargeback': json['IsChargeback'],
         'aVSResult': !runtime_1.exists(json, 'AVSResult') ? undefined : _1.CardResultFromJSON(json['AVSResult']),
         'cVCResult': !runtime_1.exists(json, 'CVCResult') ? undefined : _1.CardResultFromJSON(json['CVCResult']),
+        'isInDispute': !runtime_1.exists(json, 'IsInDispute') ? undefined : json['IsInDispute'],
+        'disputeStatus': !runtime_1.exists(json, 'DisputeStatus') ? undefined : _1.DisputeStatusFromJSON(json['DisputeStatus']),
     };
 }
 exports.TransactionResultFromJSONTyped = TransactionResultFromJSONTyped;
@@ -55,6 +57,8 @@ function TransactionResultToJSON(value) {
         'IsChargeback': value.isChargeback,
         'AVSResult': _1.CardResultToJSON(value.aVSResult),
         'CVCResult': _1.CardResultToJSON(value.cVCResult),
+        'IsInDispute': value.isInDispute,
+        'DisputeStatus': _1.DisputeStatusToJSON(value.disputeStatus),
     };
 }
 exports.TransactionResultToJSON = TransactionResultToJSON;

@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CardBrand, CardType, ExtendedCurrency, PaymentFormMessage, TermsAndConditions } from './';
+import { CardBrand, CardType, ExtendedCurrency, InstallmentPlanStatus, PaymentFormMessage, PaymentMethods, TermsAndConditions } from './';
 /**
  *
  * @export
@@ -174,6 +174,24 @@ export interface PaymentWizardDataResponseAllOf {
      * @memberof PaymentWizardDataResponseAllOf
      */
     termsAndConditions?: TermsAndConditions;
+    /**
+     *
+     * @type {Array<PaymentMethods>}
+     * @memberof PaymentWizardDataResponseAllOf
+     */
+    paymentMethods?: Array<PaymentMethods>;
+    /**
+     *
+     * @type {InstallmentPlanStatus}
+     * @memberof PaymentWizardDataResponseAllOf
+     */
+    status: InstallmentPlanStatus;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PaymentWizardDataResponseAllOf
+     */
+    isAttempt3Dsecure: boolean;
 }
 export declare function PaymentWizardDataResponseAllOfFromJSON(json: any): PaymentWizardDataResponseAllOf;
 export declare function PaymentWizardDataResponseAllOfFromJSONTyped(json: any, ignoreDiscriminator: boolean): PaymentWizardDataResponseAllOf;

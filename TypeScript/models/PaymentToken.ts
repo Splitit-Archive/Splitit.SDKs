@@ -31,6 +31,12 @@ export interface PaymentToken {
      * @memberof PaymentToken
      */
     type?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof PaymentToken
+     */
+    billingData?: object;
 }
 
 export function PaymentTokenFromJSON(json: any): PaymentToken {
@@ -45,6 +51,7 @@ export function PaymentTokenFromJSONTyped(json: any, ignoreDiscriminator: boolea
         
         'token': !exists(json, 'Token') ? undefined : json['Token'],
         'type': !exists(json, 'Type') ? undefined : json['Type'],
+        'billingData': !exists(json, 'BillingData') ? undefined : json['BillingData'],
     };
 }
 
@@ -59,6 +66,7 @@ export function PaymentTokenToJSON(value?: PaymentToken | null): any {
         
         'Token': value.token,
         'Type': value.type,
+        'BillingData': value.billingData,
     };
 }
 

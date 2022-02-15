@@ -32,6 +32,7 @@ function PaymentWizardDataFromJSONTyped(json, ignoreDiscriminator) {
         'isOpenedInIframe': json['IsOpenedInIframe'],
         'is3dSecureInPopup': !runtime_1.exists(json, 'Is3dSecureInPopup') ? undefined : json['Is3dSecureInPopup'],
         'paymentFormMessage': !runtime_1.exists(json, 'PaymentFormMessage') ? undefined : json['PaymentFormMessage'],
+        'setShortUrl': json['SetShortUrl'],
     };
 }
 exports.PaymentWizardDataFromJSONTyped = PaymentWizardDataFromJSONTyped;
@@ -52,6 +53,7 @@ function PaymentWizardDataToJSON(value) {
         'IsOpenedInIframe': value.isOpenedInIframe,
         'Is3dSecureInPopup': value.is3dSecureInPopup,
         'PaymentFormMessage': value.paymentFormMessage,
+        'SetShortUrl': value.setShortUrl,
     };
 }
 exports.PaymentWizardDataToJSON = PaymentWizardDataToJSON;

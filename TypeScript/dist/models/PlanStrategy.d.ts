@@ -22,7 +22,8 @@ export declare enum PlanStrategy {
     SinglePayment = "SinglePayment",
     ExternalInstallmentProvider = "ExternalInstallmentProvider",
     SecuredPlan3A = "SecuredPlan3A",
-    SecuredPlan3B = "SecuredPlan3B"
+    SecuredPlan3B = "SecuredPlan3B",
+    SecuredPlan2A = "SecuredPlan2A"
 }
 export declare function PlanStrategyFromJSON(json: any): PlanStrategy;
 export declare function PlanStrategyFromJSONTyped(json: any, ignoreDiscriminator: boolean): PlanStrategy;

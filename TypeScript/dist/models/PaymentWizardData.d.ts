@@ -69,6 +69,12 @@ export interface PaymentWizardData {
      * @memberof PaymentWizardData
      */
     paymentFormMessage?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof PaymentWizardData
+     */
+    setShortUrl: boolean;
 }
 export declare function PaymentWizardDataFromJSON(json: any): PaymentWizardData;
 export declare function PaymentWizardDataFromJSONTyped(json: any, ignoreDiscriminator: boolean): PaymentWizardData;

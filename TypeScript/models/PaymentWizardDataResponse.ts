@@ -26,10 +26,18 @@ import {
     ExtendedCurrencyFromJSON,
     ExtendedCurrencyFromJSONTyped,
     ExtendedCurrencyToJSON,
+    InstallmentPlanStatus,
+    InstallmentPlanStatusFromJSON,
+    InstallmentPlanStatusFromJSONTyped,
+    InstallmentPlanStatusToJSON,
     PaymentFormMessage,
     PaymentFormMessageFromJSON,
     PaymentFormMessageFromJSONTyped,
     PaymentFormMessageToJSON,
+    PaymentMethods,
+    PaymentMethodsFromJSON,
+    PaymentMethodsFromJSONTyped,
+    PaymentMethodsToJSON,
     PaymentWizardData,
     PaymentWizardDataFromJSON,
     PaymentWizardDataFromJSONTyped,
@@ -104,6 +112,12 @@ export interface PaymentWizardDataResponse {
      * @memberof PaymentWizardDataResponse
      */
     paymentFormMessage?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PaymentWizardDataResponse
+     */
+    setShortUrl: boolean;
     /**
      * 
      * @type {string}
@@ -260,6 +274,24 @@ export interface PaymentWizardDataResponse {
      * @memberof PaymentWizardDataResponse
      */
     termsAndConditions?: TermsAndConditions;
+    /**
+     * 
+     * @type {Array<PaymentMethods>}
+     * @memberof PaymentWizardDataResponse
+     */
+    paymentMethods?: Array<PaymentMethods>;
+    /**
+     * 
+     * @type {InstallmentPlanStatus}
+     * @memberof PaymentWizardDataResponse
+     */
+    status: InstallmentPlanStatus;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof PaymentWizardDataResponse
+     */
+    isAttempt3Dsecure: boolean;
 }
 
 export function PaymentWizardDataResponseFromJSON(json: any): PaymentWizardDataResponse {
@@ -281,6 +313,7 @@ export function PaymentWizardDataResponseFromJSONTyped(json: any, ignoreDiscrimi
         'isOpenedInIframe': json['IsOpenedInIframe'],
         'is3dSecureInPopup': !exists(json, 'Is3dSecureInPopup') ? undefined : json['Is3dSecureInPopup'],
         'paymentFormMessage': !exists(json, 'PaymentFormMessage') ? undefined : json['PaymentFormMessage'],
+        'setShortUrl': json['SetShortUrl'],
         'showAddressElements': !exists(json, 'ShowAddressElements') ? undefined : json['ShowAddressElements'],
         'currencyDisplay': !exists(json, 'CurrencyDisplay') ? undefined : ExtendedCurrencyFromJSON(json['CurrencyDisplay']),
         'forceDisplayImportantNotes': json['ForceDisplayImportantNotes'],
@@ -307,6 +340,9 @@ export function PaymentWizardDataResponseFromJSONTyped(json: any, ignoreDiscrimi
         'paymentFormMessages': !exists(json, 'PaymentFormMessages') ? undefined : ((json['PaymentFormMessages'] as Array<any>).map(PaymentFormMessageFromJSON)),
         'displayProperties': !exists(json, 'DisplayProperties') ? undefined : json['DisplayProperties'],
         'termsAndConditions': !exists(json, 'TermsAndConditions') ? undefined : TermsAndConditionsFromJSON(json['TermsAndConditions']),
+        'paymentMethods': !exists(json, 'PaymentMethods') ? undefined : ((json['PaymentMethods'] as Array<any>).map(PaymentMethodsFromJSON)),
+        'status': InstallmentPlanStatusFromJSON(json['Status']),
+        'isAttempt3Dsecure': json['IsAttempt3Dsecure'],
     };
 }
 
@@ -328,6 +364,7 @@ export function PaymentWizardDataResponseToJSON(value?: PaymentWizardDataRespons
         'IsOpenedInIframe': value.isOpenedInIframe,
         'Is3dSecureInPopup': value.is3dSecureInPopup,
         'PaymentFormMessage': value.paymentFormMessage,
+        'SetShortUrl': value.setShortUrl,
         'ShowAddressElements': value.showAddressElements,
         'CurrencyDisplay': ExtendedCurrencyToJSON(value.currencyDisplay),
         'ForceDisplayImportantNotes': value.forceDisplayImportantNotes,
@@ -354,6 +391,9 @@ export function PaymentWizardDataResponseToJSON(value?: PaymentWizardDataRespons
         'PaymentFormMessages': value.paymentFormMessages === undefined ? undefined : ((value.paymentFormMessages as Array<any>).map(PaymentFormMessageToJSON)),
         'DisplayProperties': value.displayProperties,
         'TermsAndConditions': TermsAndConditionsToJSON(value.termsAndConditions),
+        'PaymentMethods': value.paymentMethods === undefined ? undefined : ((value.paymentMethods as Array<any>).map(PaymentMethodsToJSON)),
+        'Status': InstallmentPlanStatusToJSON(value.status),
+        'IsAttempt3Dsecure': value.isAttempt3Dsecure,
     };
 }
 

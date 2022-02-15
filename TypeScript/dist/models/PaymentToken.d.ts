@@ -27,6 +27,12 @@ export interface PaymentToken {
      * @memberof PaymentToken
      */
     type?: string;
+    /**
+     *
+     * @type {object}
+     * @memberof PaymentToken
+     */
+    billingData?: object;
 }
 export declare function PaymentTokenFromJSON(json: any): PaymentToken;
 export declare function PaymentTokenFromJSONTyped(json: any, ignoreDiscriminator: boolean): PaymentToken;

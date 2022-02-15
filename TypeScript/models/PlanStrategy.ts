@@ -25,7 +25,8 @@ export enum PlanStrategy {
     SinglePayment = 'SinglePayment',
     ExternalInstallmentProvider = 'ExternalInstallmentProvider',
     SecuredPlan3A = 'SecuredPlan3A',
-    SecuredPlan3B = 'SecuredPlan3B'
+    SecuredPlan3B = 'SecuredPlan3B',
+    SecuredPlan2A = 'SecuredPlan2A'
 }
 
 export function PlanStrategyFromJSON(json: any): PlanStrategy {

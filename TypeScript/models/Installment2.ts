@@ -110,6 +110,12 @@ export interface Installment2 {
      * @memberof Installment2
      */
     result?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof Installment2
+     */
+    paymentMethod?: string;
 }
 
 export function Installment2FromJSON(json: any): Installment2 {
@@ -134,6 +140,7 @@ export function Installment2FromJSONTyped(json: any, ignoreDiscriminator: boolea
         'transactionResults': !exists(json, 'TransactionResults') ? undefined : ((json['TransactionResults'] as Array<any>).map(TransactionResultFromJSON)),
         'cardDetails': !exists(json, 'CardDetails') ? undefined : CardDataFromJSON(json['CardDetails']),
         'result': !exists(json, 'Result') ? undefined : json['Result'],
+        'paymentMethod': !exists(json, 'PaymentMethod') ? undefined : json['PaymentMethod'],
     };
 }
 
@@ -158,6 +165,7 @@ export function Installment2ToJSON(value?: Installment2 | null): any {
         'TransactionResults': value.transactionResults === undefined ? undefined : ((value.transactionResults as Array<any>).map(TransactionResultToJSON)),
         'CardDetails': CardDataToJSON(value.cardDetails),
         'Result': value.result,
+        'PaymentMethod': value.paymentMethod,
     };
 }
 

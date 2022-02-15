@@ -22,6 +22,10 @@ import {
     ConsumerDataFromJSON,
     ConsumerDataFromJSONTyped,
     ConsumerDataToJSON,
+    Disputes,
+    DisputesFromJSON,
+    DisputesFromJSONTyped,
+    DisputesToJSON,
     FraudCheck,
     FraudCheckFromJSON,
     FraudCheckFromJSONTyped,
@@ -86,6 +90,12 @@ export interface InstallmentPlan {
      * @memberof InstallmentPlan
      */
     outstandingAmount?: Money;
+    /**
+     * 
+     * @type {Disputes}
+     * @memberof InstallmentPlan
+     */
+    disputes?: Disputes;
     /**
      * 
      * @type {number}
@@ -236,6 +246,18 @@ export interface InstallmentPlan {
      * @memberof InstallmentPlan
      */
     isInAutoRetry: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof InstallmentPlan
+     */
+    paymentMethod?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof InstallmentPlan
+     */
+    allowCardUpdateOnSplititPortals: boolean;
 }
 
 export function InstallmentPlanFromJSON(json: any): InstallmentPlan {
@@ -252,6 +274,7 @@ export function InstallmentPlanFromJSONTyped(json: any, ignoreDiscriminator: boo
         'installmentPlanStatus': !exists(json, 'InstallmentPlanStatus') ? undefined : ReferenceEntityBaseFromJSON(json['InstallmentPlanStatus']),
         'amount': !exists(json, 'Amount') ? undefined : MoneyFromJSON(json['Amount']),
         'outstandingAmount': !exists(json, 'OutstandingAmount') ? undefined : MoneyFromJSON(json['OutstandingAmount']),
+        'disputes': !exists(json, 'Disputes') ? undefined : DisputesFromJSON(json['Disputes']),
         'numberOfInstallments': json['NumberOfInstallments'],
         'numberOfProcessedInstallments': json['NumberOfProcessedInstallments'],
         'originalAmount': !exists(json, 'OriginalAmount') ? undefined : MoneyFromJSON(json['OriginalAmount']),
@@ -277,6 +300,8 @@ export function InstallmentPlanFromJSONTyped(json: any, ignoreDiscriminator: boo
         'secureAuthorizations': !exists(json, 'SecureAuthorizations') ? undefined : ((json['SecureAuthorizations'] as Array<any>).map(ReAuthorizationFromJSON)),
         'logoUrl': !exists(json, 'LogoUrl') ? undefined : json['LogoUrl'],
         'isInAutoRetry': json['IsInAutoRetry'],
+        'paymentMethod': !exists(json, 'PaymentMethod') ? undefined : json['PaymentMethod'],
+        'allowCardUpdateOnSplititPortals': json['AllowCardUpdateOnSplititPortals'],
     };
 }
 
@@ -293,6 +318,7 @@ export function InstallmentPlanToJSON(value?: InstallmentPlan | null): any {
         'InstallmentPlanStatus': ReferenceEntityBaseToJSON(value.installmentPlanStatus),
         'Amount': MoneyToJSON(value.amount),
         'OutstandingAmount': MoneyToJSON(value.outstandingAmount),
+        'Disputes': DisputesToJSON(value.disputes),
         'NumberOfInstallments': value.numberOfInstallments,
         'NumberOfProcessedInstallments': value.numberOfProcessedInstallments,
         'OriginalAmount': MoneyToJSON(value.originalAmount),
@@ -318,6 +344,8 @@ export function InstallmentPlanToJSON(value?: InstallmentPlan | null): any {
         'SecureAuthorizations': value.secureAuthorizations === undefined ? undefined : ((value.secureAuthorizations as Array<any>).map(ReAuthorizationToJSON)),
         'LogoUrl': value.logoUrl,
         'IsInAutoRetry': value.isInAutoRetry,
+        'PaymentMethod': value.paymentMethod,
+        'AllowCardUpdateOnSplititPortals': value.allowCardUpdateOnSplititPortals,
     };
 }
 

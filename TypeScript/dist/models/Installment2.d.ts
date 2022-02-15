@@ -88,6 +88,12 @@ export interface Installment2 {
      * @memberof Installment2
      */
     result?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof Installment2
+     */
+    paymentMethod?: string;
 }
 export declare function Installment2FromJSON(json: any): Installment2;
 export declare function Installment2FromJSONTyped(json: any, ignoreDiscriminator: boolean): Installment2;

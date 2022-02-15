@@ -36,6 +36,7 @@ function Installment2FromJSONTyped(json, ignoreDiscriminator) {
         'transactionResults': !runtime_1.exists(json, 'TransactionResults') ? undefined : (json['TransactionResults'].map(_1.TransactionResultFromJSON)),
         'cardDetails': !runtime_1.exists(json, 'CardDetails') ? undefined : _1.CardDataFromJSON(json['CardDetails']),
         'result': !runtime_1.exists(json, 'Result') ? undefined : json['Result'],
+        'paymentMethod': !runtime_1.exists(json, 'PaymentMethod') ? undefined : json['PaymentMethod'],
     };
 }
 exports.Installment2FromJSONTyped = Installment2FromJSONTyped;
@@ -59,6 +60,7 @@ function Installment2ToJSON(value) {
         'TransactionResults': value.transactionResults === undefined ? undefined : (value.transactionResults.map(_1.TransactionResultToJSON)),
         'CardDetails': _1.CardDataToJSON(value.cardDetails),
         'Result': value.result,
+        'PaymentMethod': value.paymentMethod,
     };
 }
 exports.Installment2ToJSON = Installment2ToJSON;

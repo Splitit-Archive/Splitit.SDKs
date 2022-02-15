@@ -9,7 +9,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CardData, ConsumerData, FraudCheck, Installment2, MerchantRef, Money, MoneyFlows, ReAuthorization, ReferenceEntityBase, TestModes } from './';
+import { CardData, ConsumerData, Disputes, FraudCheck, Installment2, MerchantRef, Money, MoneyFlows, ReAuthorization, ReferenceEntityBase, TestModes } from './';
 /**
  *
  * @export
@@ -40,6 +40,12 @@ export interface InstallmentPlan {
      * @memberof InstallmentPlan
      */
     outstandingAmount?: Money;
+    /**
+     *
+     * @type {Disputes}
+     * @memberof InstallmentPlan
+     */
+    disputes?: Disputes;
     /**
      *
      * @type {number}
@@ -192,6 +198,18 @@ export interface InstallmentPlan {
      * @memberof InstallmentPlan
      */
     isInAutoRetry: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof InstallmentPlan
+     */
+    paymentMethod?: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof InstallmentPlan
+     */
+    allowCardUpdateOnSplititPortals: boolean;
 }
 export declare function InstallmentPlanFromJSON(json: any): InstallmentPlan;
 export declare function InstallmentPlanFromJSONTyped(json: any, ignoreDiscriminator: boolean): InstallmentPlan;
