@@ -6,7 +6,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = "${groupId}"
-version = '1.6.5522'
+version = '1.6.5523'
 
 buildscript {
     repositories {
