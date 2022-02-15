@@ -42,7 +42,8 @@ class Installment2(object):
         'status': 'ReferenceEntityBase',
         'transaction_results': 'list[TransactionResult]',
         'card_details': 'CardData',
-        'result': 'bool'
+        'result': 'bool',
+        'payment_method': 'str'
     }
 
     attribute_map = {
@@ -57,10 +58,11 @@ class Installment2(object):
         'status': 'Status',
         'transaction_results': 'TransactionResults',
         'card_details': 'CardDetails',
-        'result': 'Result'
+        'result': 'Result',
+        'payment_method': 'PaymentMethod'
     }
 
-    def __init__(self, installment_number=None, amount=None, original_amount=None, refund_amount=None, process_date_time=None, is_refund=None, required_credit=None, created_date_time=None, status=None, transaction_results=None, card_details=None, result=None):  # noqa: E501
+    def __init__(self, installment_number=None, amount=None, original_amount=None, refund_amount=None, process_date_time=None, is_refund=None, required_credit=None, created_date_time=None, status=None, transaction_results=None, card_details=None, result=None, payment_method=None):  # noqa: E501
         """Installment2 - a model defined in Swagger"""  # noqa: E501
 
         self._installment_number = None
@@ -75,6 +77,7 @@ class Installment2(object):
         self._transaction_results = None
         self._card_details = None
         self._result = None
+        self._payment_method = None
         self.discriminator = None
 
         self._installment_number = installment_number
@@ -98,6 +101,8 @@ class Installment2(object):
             self._card_details = card_details
         if result is not None:
             self._result = result
+        if payment_method is not None:
+            self._payment_method = payment_method
 
     @property
     def installment_number(self):
@@ -359,6 +364,27 @@ class Installment2(object):
         """
 
         self._result = result
+
+    @property
+    def payment_method(self):
+        """Gets the payment_method of this Installment2.  # noqa: E501
+
+
+        :return: The payment_method of this Installment2.  # noqa: E501
+        :rtype: str
+        """
+        return self._payment_method
+
+    @payment_method.setter
+    def payment_method(self, payment_method):
+        """Sets the payment_method of this Installment2.
+
+
+        :param payment_method: The payment_method of this Installment2.  # noqa: E501
+        :type: str
+        """
+
+        self._payment_method = payment_method
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -35,6 +35,7 @@ class InstallmentPlan(object):
         'installment_plan_status': 'ReferenceEntityBase',
         'amount': 'Money',
         'outstanding_amount': 'Money',
+        'disputes': 'Disputes',
         'number_of_installments': 'int',
         'number_of_processed_installments': 'int',
         'original_amount': 'Money',
@@ -59,7 +60,9 @@ class InstallmentPlan(object):
         'installments': 'list[Installment2]',
         'secure_authorizations': 'list[ReAuthorization]',
         'logo_url': 'str',
-        'is_in_auto_retry': 'bool'
+        'is_in_auto_retry': 'bool',
+        'payment_method': 'str',
+        'allow_card_update_on_splitit_portals': 'bool'
     }
 
     attribute_map = {
@@ -67,6 +70,7 @@ class InstallmentPlan(object):
         'installment_plan_status': 'InstallmentPlanStatus',
         'amount': 'Amount',
         'outstanding_amount': 'OutstandingAmount',
+        'disputes': 'Disputes',
         'number_of_installments': 'NumberOfInstallments',
         'number_of_processed_installments': 'NumberOfProcessedInstallments',
         'original_amount': 'OriginalAmount',
@@ -91,16 +95,19 @@ class InstallmentPlan(object):
         'installments': 'Installments',
         'secure_authorizations': 'SecureAuthorizations',
         'logo_url': 'LogoUrl',
-        'is_in_auto_retry': 'IsInAutoRetry'
+        'is_in_auto_retry': 'IsInAutoRetry',
+        'payment_method': 'PaymentMethod',
+        'allow_card_update_on_splitit_portals': 'AllowCardUpdateOnSplititPortals'
     }
 
-    def __init__(self, installment_plan_number=None, installment_plan_status=None, amount=None, outstanding_amount=None, number_of_installments=None, number_of_processed_installments=None, original_amount=None, refund_amount=None, consumer=None, active_card=None, fraud_check=None, merchant=None, ref_order_number=None, purchase_method=None, strategy=None, delay_resolution=None, extended_params=None, is_full_captured=None, is_charged_back=None, are_payments_on_hold=None, scp_funding_percent=None, funding_status=None, test_mode=None, creation_date_time=None, life_time_url_expiration_time=None, installments=None, secure_authorizations=None, logo_url=None, is_in_auto_retry=None):  # noqa: E501
+    def __init__(self, installment_plan_number=None, installment_plan_status=None, amount=None, outstanding_amount=None, disputes=None, number_of_installments=None, number_of_processed_installments=None, original_amount=None, refund_amount=None, consumer=None, active_card=None, fraud_check=None, merchant=None, ref_order_number=None, purchase_method=None, strategy=None, delay_resolution=None, extended_params=None, is_full_captured=None, is_charged_back=None, are_payments_on_hold=None, scp_funding_percent=None, funding_status=None, test_mode=None, creation_date_time=None, life_time_url_expiration_time=None, installments=None, secure_authorizations=None, logo_url=None, is_in_auto_retry=None, payment_method=None, allow_card_update_on_splitit_portals=None):  # noqa: E501
         """InstallmentPlan - a model defined in Swagger"""  # noqa: E501
 
         self._installment_plan_number = None
         self._installment_plan_status = None
         self._amount = None
         self._outstanding_amount = None
+        self._disputes = None
         self._number_of_installments = None
         self._number_of_processed_installments = None
         self._original_amount = None
@@ -126,6 +133,8 @@ class InstallmentPlan(object):
         self._secure_authorizations = None
         self._logo_url = None
         self._is_in_auto_retry = None
+        self._payment_method = None
+        self._allow_card_update_on_splitit_portals = None
         self.discriminator = None
 
         if installment_plan_number is not None:
@@ -136,6 +145,8 @@ class InstallmentPlan(object):
             self._amount = amount
         if outstanding_amount is not None:
             self._outstanding_amount = outstanding_amount
+        if disputes is not None:
+            self._disputes = disputes
         self._number_of_installments = number_of_installments
         self._number_of_processed_installments = number_of_processed_installments
         if original_amount is not None:
@@ -175,6 +186,9 @@ class InstallmentPlan(object):
         if logo_url is not None:
             self._logo_url = logo_url
         self._is_in_auto_retry = is_in_auto_retry
+        if payment_method is not None:
+            self._payment_method = payment_method
+        self._allow_card_update_on_splitit_portals = allow_card_update_on_splitit_portals
 
     @property
     def installment_plan_number(self):
@@ -259,6 +273,27 @@ class InstallmentPlan(object):
         """
 
         self._outstanding_amount = outstanding_amount
+
+    @property
+    def disputes(self):
+        """Gets the disputes of this InstallmentPlan.  # noqa: E501
+
+
+        :return: The disputes of this InstallmentPlan.  # noqa: E501
+        :rtype: Disputes
+        """
+        return self._disputes
+
+    @disputes.setter
+    def disputes(self, disputes):
+        """Sets the disputes of this InstallmentPlan.
+
+
+        :param disputes: The disputes of this InstallmentPlan.  # noqa: E501
+        :type: Disputes
+        """
+
+        self._disputes = disputes
 
     @property
     def number_of_installments(self):
@@ -817,6 +852,51 @@ class InstallmentPlan(object):
             raise ValueError("Invalid value for `is_in_auto_retry`, must not be `None`")  # noqa: E501
 
         self._is_in_auto_retry = is_in_auto_retry
+
+    @property
+    def payment_method(self):
+        """Gets the payment_method of this InstallmentPlan.  # noqa: E501
+
+
+        :return: The payment_method of this InstallmentPlan.  # noqa: E501
+        :rtype: str
+        """
+        return self._payment_method
+
+    @payment_method.setter
+    def payment_method(self, payment_method):
+        """Sets the payment_method of this InstallmentPlan.
+
+
+        :param payment_method: The payment_method of this InstallmentPlan.  # noqa: E501
+        :type: str
+        """
+
+        self._payment_method = payment_method
+
+    @property
+    def allow_card_update_on_splitit_portals(self):
+        """Gets the allow_card_update_on_splitit_portals of this InstallmentPlan.  # noqa: E501
+
+
+        :return: The allow_card_update_on_splitit_portals of this InstallmentPlan.  # noqa: E501
+        :rtype: bool
+        """
+        return self._allow_card_update_on_splitit_portals
+
+    @allow_card_update_on_splitit_portals.setter
+    def allow_card_update_on_splitit_portals(self, allow_card_update_on_splitit_portals):
+        """Sets the allow_card_update_on_splitit_portals of this InstallmentPlan.
+
+
+        :param allow_card_update_on_splitit_portals: The allow_card_update_on_splitit_portals of this InstallmentPlan.  # noqa: E501
+        :type: bool
+        """
+        allow_card_update_on_splitit_portals = bool(allow_card_update_on_splitit_portals)
+        if allow_card_update_on_splitit_portals is None:
+            raise ValueError("Invalid value for `allow_card_update_on_splitit_portals`, must not be `None`")  # noqa: E501
+
+        self._allow_card_update_on_splitit_portals = allow_card_update_on_splitit_portals
 
     def to_dict(self):
         """Returns the model properties as a dict"""

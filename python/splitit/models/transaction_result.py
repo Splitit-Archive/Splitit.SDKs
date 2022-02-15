@@ -40,7 +40,9 @@ class TransactionResult(object):
         'gateway_transaction_date': 'datetime',
         'is_chargeback': 'bool',
         'avs_result': 'CardResult',
-        'cvc_result': 'CardResult'
+        'cvc_result': 'CardResult',
+        'is_in_dispute': 'bool',
+        'dispute_status': 'DisputeStatus'
     }
 
     attribute_map = {
@@ -53,10 +55,12 @@ class TransactionResult(object):
         'gateway_transaction_date': 'GatewayTransactionDate',
         'is_chargeback': 'IsChargeback',
         'avs_result': 'AVSResult',
-        'cvc_result': 'CVCResult'
+        'cvc_result': 'CVCResult',
+        'is_in_dispute': 'IsInDispute',
+        'dispute_status': 'DisputeStatus'
     }
 
-    def __init__(self, gateway_transaction_id=None, splitit_transaction_id=None, gateway_result_code=None, gateway_result_message=None, operation_type=None, gateway_result=None, gateway_transaction_date=None, is_chargeback=None, avs_result=None, cvc_result=None):  # noqa: E501
+    def __init__(self, gateway_transaction_id=None, splitit_transaction_id=None, gateway_result_code=None, gateway_result_message=None, operation_type=None, gateway_result=None, gateway_transaction_date=None, is_chargeback=None, avs_result=None, cvc_result=None, is_in_dispute=None, dispute_status=None):  # noqa: E501
         """TransactionResult - a model defined in Swagger"""  # noqa: E501
 
         self._gateway_transaction_id = None
@@ -69,6 +73,8 @@ class TransactionResult(object):
         self._is_chargeback = None
         self._avs_result = None
         self._cvc_result = None
+        self._is_in_dispute = None
+        self._dispute_status = None
         self.discriminator = None
 
         if gateway_transaction_id is not None:
@@ -87,6 +93,10 @@ class TransactionResult(object):
             self._avs_result = avs_result
         if cvc_result is not None:
             self._cvc_result = cvc_result
+        if is_in_dispute is not None:
+            self._is_in_dispute = is_in_dispute
+        if dispute_status is not None:
+            self._dispute_status = dispute_status
 
     @property
     def gateway_transaction_id(self):
@@ -309,6 +319,48 @@ class TransactionResult(object):
         """
 
         self._cvc_result = cvc_result
+
+    @property
+    def is_in_dispute(self):
+        """Gets the is_in_dispute of this TransactionResult.  # noqa: E501
+
+
+        :return: The is_in_dispute of this TransactionResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_in_dispute
+
+    @is_in_dispute.setter
+    def is_in_dispute(self, is_in_dispute):
+        """Sets the is_in_dispute of this TransactionResult.
+
+
+        :param is_in_dispute: The is_in_dispute of this TransactionResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_in_dispute = is_in_dispute
+
+    @property
+    def dispute_status(self):
+        """Gets the dispute_status of this TransactionResult.  # noqa: E501
+
+
+        :return: The dispute_status of this TransactionResult.  # noqa: E501
+        :rtype: DisputeStatus
+        """
+        return self._dispute_status
+
+    @dispute_status.setter
+    def dispute_status(self, dispute_status):
+        """Sets the dispute_status of this TransactionResult.
+
+
+        :param dispute_status: The dispute_status of this TransactionResult.  # noqa: E501
+        :type: DisputeStatus
+        """
+
+        self._dispute_status = dispute_status
 
     def to_dict(self):
         """Returns the model properties as a dict"""

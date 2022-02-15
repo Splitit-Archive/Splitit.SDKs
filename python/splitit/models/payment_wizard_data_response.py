@@ -40,6 +40,7 @@ class PaymentWizardDataResponse(object):
         'is_opened_in_iframe': 'bool',
         'is3d_secure_in_popup': 'bool',
         'payment_form_message': 'str',
+        'set_short_url': 'bool',
         'show_address_elements': 'str',
         'currency_display': 'ExtendedCurrency',
         'force_display_important_notes': 'bool',
@@ -65,7 +66,10 @@ class PaymentWizardDataResponse(object):
         'potential_card_brands': 'list[CardBrand]',
         'payment_form_messages': 'list[PaymentFormMessage]',
         'display_properties': 'dict(str, str)',
-        'terms_and_conditions': 'TermsAndConditions'
+        'terms_and_conditions': 'TermsAndConditions',
+        'payment_methods': 'list[PaymentMethods]',
+        'status': 'InstallmentPlanStatus',
+        'is_attempt3_dsecure': 'bool'
     }
 
     attribute_map = {
@@ -78,6 +82,7 @@ class PaymentWizardDataResponse(object):
         'is_opened_in_iframe': 'IsOpenedInIframe',
         'is3d_secure_in_popup': 'Is3dSecureInPopup',
         'payment_form_message': 'PaymentFormMessage',
+        'set_short_url': 'SetShortUrl',
         'show_address_elements': 'ShowAddressElements',
         'currency_display': 'CurrencyDisplay',
         'force_display_important_notes': 'ForceDisplayImportantNotes',
@@ -103,10 +108,13 @@ class PaymentWizardDataResponse(object):
         'potential_card_brands': 'PotentialCardBrands',
         'payment_form_messages': 'PaymentFormMessages',
         'display_properties': 'DisplayProperties',
-        'terms_and_conditions': 'TermsAndConditions'
+        'terms_and_conditions': 'TermsAndConditions',
+        'payment_methods': 'PaymentMethods',
+        'status': 'Status',
+        'is_attempt3_dsecure': 'IsAttempt3Dsecure'
     }
 
-    def __init__(self, requested_number_of_installments=None, success_exit_url=None, error_exit_url=None, cancel_exit_url=None, success_async_url=None, view_name=None, is_opened_in_iframe=None, is3d_secure_in_popup=None, payment_form_message=None, show_address_elements=None, currency_display=None, force_display_important_notes=None, show_shopper_details_expended_on_start=None, show_payment_schedule_required_credit=None, is_shopper_email_mandatory=None, is_shopper_phone_mandatory=None, number_of_installments_selections_option=None, is3ds2_supported=None, processor_name=None, address_is_readonly=None, phone_is_read_only=None, email_is_read_only=None, show_learn_more=None, show_mobile_phone=None, show_close_dialog_before_abandon=None, logo_url=None, default_num_of_installments=None, privacy_policy_url=None, terms_and_conditions_url=None, learn_more_url=None, potential_card_types=None, potential_card_brands=None, payment_form_messages=None, display_properties=None, terms_and_conditions=None):  # noqa: E501
+    def __init__(self, requested_number_of_installments=None, success_exit_url=None, error_exit_url=None, cancel_exit_url=None, success_async_url=None, view_name=None, is_opened_in_iframe=None, is3d_secure_in_popup=None, payment_form_message=None, set_short_url=None, show_address_elements=None, currency_display=None, force_display_important_notes=None, show_shopper_details_expended_on_start=None, show_payment_schedule_required_credit=None, is_shopper_email_mandatory=None, is_shopper_phone_mandatory=None, number_of_installments_selections_option=None, is3ds2_supported=None, processor_name=None, address_is_readonly=None, phone_is_read_only=None, email_is_read_only=None, show_learn_more=None, show_mobile_phone=None, show_close_dialog_before_abandon=None, logo_url=None, default_num_of_installments=None, privacy_policy_url=None, terms_and_conditions_url=None, learn_more_url=None, potential_card_types=None, potential_card_brands=None, payment_form_messages=None, display_properties=None, terms_and_conditions=None, payment_methods=None, status=None, is_attempt3_dsecure=None):  # noqa: E501
         """PaymentWizardDataResponse - a model defined in Swagger"""  # noqa: E501
 
         self._requested_number_of_installments = None
@@ -118,6 +126,7 @@ class PaymentWizardDataResponse(object):
         self._is_opened_in_iframe = None
         self._is3d_secure_in_popup = None
         self._payment_form_message = None
+        self._set_short_url = None
         self._show_address_elements = None
         self._currency_display = None
         self._force_display_important_notes = None
@@ -144,6 +153,9 @@ class PaymentWizardDataResponse(object):
         self._payment_form_messages = None
         self._display_properties = None
         self._terms_and_conditions = None
+        self._payment_methods = None
+        self._status = None
+        self._is_attempt3_dsecure = None
         self.discriminator = None
 
         if requested_number_of_installments is not None:
@@ -163,6 +175,7 @@ class PaymentWizardDataResponse(object):
             self._is3d_secure_in_popup = is3d_secure_in_popup
         if payment_form_message is not None:
             self._payment_form_message = payment_form_message
+        self._set_short_url = set_short_url
         if show_address_elements is not None:
             self._show_address_elements = show_address_elements
         if currency_display is not None:
@@ -202,6 +215,10 @@ class PaymentWizardDataResponse(object):
             self._display_properties = display_properties
         if terms_and_conditions is not None:
             self._terms_and_conditions = terms_and_conditions
+        if payment_methods is not None:
+            self._payment_methods = payment_methods
+        self._status = status
+        self._is_attempt3_dsecure = is_attempt3_dsecure
 
     @property
     def requested_number_of_installments(self):
@@ -394,6 +411,30 @@ class PaymentWizardDataResponse(object):
         """
 
         self._payment_form_message = payment_form_message
+
+    @property
+    def set_short_url(self):
+        """Gets the set_short_url of this PaymentWizardDataResponse.  # noqa: E501
+
+
+        :return: The set_short_url of this PaymentWizardDataResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._set_short_url
+
+    @set_short_url.setter
+    def set_short_url(self, set_short_url):
+        """Sets the set_short_url of this PaymentWizardDataResponse.
+
+
+        :param set_short_url: The set_short_url of this PaymentWizardDataResponse.  # noqa: E501
+        :type: bool
+        """
+        set_short_url = bool(set_short_url)
+        if set_short_url is None:
+            raise ValueError("Invalid value for `set_short_url`, must not be `None`")  # noqa: E501
+
+        self._set_short_url = set_short_url
 
     @property
     def show_address_elements(self):
@@ -979,6 +1020,75 @@ class PaymentWizardDataResponse(object):
         """
 
         self._terms_and_conditions = terms_and_conditions
+
+    @property
+    def payment_methods(self):
+        """Gets the payment_methods of this PaymentWizardDataResponse.  # noqa: E501
+
+
+        :return: The payment_methods of this PaymentWizardDataResponse.  # noqa: E501
+        :rtype: list[PaymentMethods]
+        """
+        return self._payment_methods
+
+    @payment_methods.setter
+    def payment_methods(self, payment_methods):
+        """Sets the payment_methods of this PaymentWizardDataResponse.
+
+
+        :param payment_methods: The payment_methods of this PaymentWizardDataResponse.  # noqa: E501
+        :type: list[PaymentMethods]
+        """
+
+        self._payment_methods = payment_methods
+
+    @property
+    def status(self):
+        """Gets the status of this PaymentWizardDataResponse.  # noqa: E501
+
+
+        :return: The status of this PaymentWizardDataResponse.  # noqa: E501
+        :rtype: InstallmentPlanStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this PaymentWizardDataResponse.
+
+
+        :param status: The status of this PaymentWizardDataResponse.  # noqa: E501
+        :type: InstallmentPlanStatus
+        """
+        
+        if status is None:
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+
+        self._status = status
+
+    @property
+    def is_attempt3_dsecure(self):
+        """Gets the is_attempt3_dsecure of this PaymentWizardDataResponse.  # noqa: E501
+
+
+        :return: The is_attempt3_dsecure of this PaymentWizardDataResponse.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_attempt3_dsecure
+
+    @is_attempt3_dsecure.setter
+    def is_attempt3_dsecure(self, is_attempt3_dsecure):
+        """Sets the is_attempt3_dsecure of this PaymentWizardDataResponse.
+
+
+        :param is_attempt3_dsecure: The is_attempt3_dsecure of this PaymentWizardDataResponse.  # noqa: E501
+        :type: bool
+        """
+        is_attempt3_dsecure = bool(is_attempt3_dsecure)
+        if is_attempt3_dsecure is None:
+            raise ValueError("Invalid value for `is_attempt3_dsecure`, must not be `None`")  # noqa: E501
+
+        self._is_attempt3_dsecure = is_attempt3_dsecure
 
     def to_dict(self):
         """Returns the model properties as a dict"""

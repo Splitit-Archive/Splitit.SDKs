@@ -39,7 +39,8 @@ class PaymentWizardData(object):
         'view_name': 'str',
         'is_opened_in_iframe': 'bool',
         'is3d_secure_in_popup': 'bool',
-        'payment_form_message': 'str'
+        'payment_form_message': 'str',
+        'set_short_url': 'bool'
     }
 
     attribute_map = {
@@ -51,10 +52,11 @@ class PaymentWizardData(object):
         'view_name': 'ViewName',
         'is_opened_in_iframe': 'IsOpenedInIframe',
         'is3d_secure_in_popup': 'Is3dSecureInPopup',
-        'payment_form_message': 'PaymentFormMessage'
+        'payment_form_message': 'PaymentFormMessage',
+        'set_short_url': 'SetShortUrl'
     }
 
-    def __init__(self, requested_number_of_installments=None, success_exit_url=None, error_exit_url=None, cancel_exit_url=None, success_async_url=None, view_name=None, is_opened_in_iframe=None, is3d_secure_in_popup=None, payment_form_message=None):  # noqa: E501
+    def __init__(self, requested_number_of_installments=None, success_exit_url=None, error_exit_url=None, cancel_exit_url=None, success_async_url=None, view_name=None, is_opened_in_iframe=None, is3d_secure_in_popup=None, payment_form_message=None, set_short_url=None):  # noqa: E501
         """PaymentWizardData - a model defined in Swagger"""  # noqa: E501
 
         self._requested_number_of_installments = None
@@ -66,6 +68,7 @@ class PaymentWizardData(object):
         self._is_opened_in_iframe = None
         self._is3d_secure_in_popup = None
         self._payment_form_message = None
+        self._set_short_url = None
         self.discriminator = None
 
         if requested_number_of_installments is not None:
@@ -85,6 +88,7 @@ class PaymentWizardData(object):
             self._is3d_secure_in_popup = is3d_secure_in_popup
         if payment_form_message is not None:
             self._payment_form_message = payment_form_message
+        self._set_short_url = set_short_url
 
     @property
     def requested_number_of_installments(self):
@@ -277,6 +281,30 @@ class PaymentWizardData(object):
         """
 
         self._payment_form_message = payment_form_message
+
+    @property
+    def set_short_url(self):
+        """Gets the set_short_url of this PaymentWizardData.  # noqa: E501
+
+
+        :return: The set_short_url of this PaymentWizardData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._set_short_url
+
+    @set_short_url.setter
+    def set_short_url(self, set_short_url):
+        """Sets the set_short_url of this PaymentWizardData.
+
+
+        :param set_short_url: The set_short_url of this PaymentWizardData.  # noqa: E501
+        :type: bool
+        """
+        set_short_url = bool(set_short_url)
+        if set_short_url is None:
+            raise ValueError("Invalid value for `set_short_url`, must not be `None`")  # noqa: E501
+
+        self._set_short_url = set_short_url
 
     def to_dict(self):
         """Returns the model properties as a dict"""
