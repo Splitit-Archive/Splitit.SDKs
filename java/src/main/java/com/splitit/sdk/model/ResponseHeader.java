@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * ResponseHeader
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T11:15:01.528Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T17:05:16.705Z")
 public class ResponseHeader  {
   @SerializedName("Succeeded")
   private Boolean succeeded = null;

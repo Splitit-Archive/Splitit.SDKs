@@ -28,7 +28,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * PlanApprovalEvidence
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T11:15:01.528Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T17:05:16.705Z")
 public class PlanApprovalEvidence  {
   @SerializedName("CustomerSignaturePngAsBase64")
   private String customerSignaturePngAsBase64 = null;

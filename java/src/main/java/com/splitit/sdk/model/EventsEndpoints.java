@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * EventsEndpoints
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T11:15:01.528Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T17:05:16.705Z")
 public class EventsEndpoints  {
   @SerializedName("CreateSucceeded")
   private String createSucceeded = null;

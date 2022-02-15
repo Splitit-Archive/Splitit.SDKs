@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * RefundInstallmentPlanResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T11:15:01.528Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T17:05:16.705Z")
 public class RefundInstallmentPlanResponse  {
   @SerializedName("ResponseHeader")
   private ResponseHeader responseHeader = null;
