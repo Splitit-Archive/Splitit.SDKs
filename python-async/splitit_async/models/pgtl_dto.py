@@ -34,8 +34,9 @@ class PgtlDto(object):
         'id': 'int',
         'result': 'bool',
         'trace_id': 'str',
-        'created_date': 'str',
+        'capture_id': 'str',
         'is_chargeback': 'bool',
+        'created_date': 'str',
         'transaction_id': 'str',
         'installment_plan_id': 'int',
         'complete_response_xml': 'str',
@@ -57,8 +58,9 @@ class PgtlDto(object):
         'id': 'Id',
         'result': 'Result',
         'trace_id': 'TraceId',
-        'created_date': 'CreatedDate',
+        'capture_id': 'CaptureId',
         'is_chargeback': 'IsChargeback',
+        'created_date': 'CreatedDate',
         'transaction_id': 'TransactionId',
         'installment_plan_id': 'InstallmentPlanId',
         'complete_response_xml': 'CompleteResponseXml',
@@ -76,14 +78,15 @@ class PgtlDto(object):
         'reference_payment_gateway_transaction_log_id': 'ReferencePaymentGatewayTransactionLogId'
     }
 
-    def __init__(self, id=None, result=None, trace_id=None, created_date=None, is_chargeback=None, transaction_id=None, installment_plan_id=None, complete_response_xml=None, terminal_gateway_data_id=None, avs_message_message_code=None, avs_message_message_text=None, cvv_message_message_code=None, cvv_message_message_text=None, requested_currency_code=None, processed_amount_amount=None, requested_amount_amount=None, result_message_message_code=None, result_message_message_text=None, type=None, reference_payment_gateway_transaction_log_id=None):  # noqa: E501
+    def __init__(self, id=None, result=None, trace_id=None, capture_id=None, is_chargeback=None, created_date=None, transaction_id=None, installment_plan_id=None, complete_response_xml=None, terminal_gateway_data_id=None, avs_message_message_code=None, avs_message_message_text=None, cvv_message_message_code=None, cvv_message_message_text=None, requested_currency_code=None, processed_amount_amount=None, requested_amount_amount=None, result_message_message_code=None, result_message_message_text=None, type=None, reference_payment_gateway_transaction_log_id=None):  # noqa: E501
         """PgtlDto - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._result = None
         self._trace_id = None
-        self._created_date = None
+        self._capture_id = None
         self._is_chargeback = None
+        self._created_date = None
         self._transaction_id = None
         self._installment_plan_id = None
         self._complete_response_xml = None
@@ -105,9 +108,11 @@ class PgtlDto(object):
         self._result = result
         if trace_id is not None:
             self._trace_id = trace_id
+        if capture_id is not None:
+            self._capture_id = capture_id
+        self._is_chargeback = is_chargeback
         if created_date is not None:
             self._created_date = created_date
-        self._is_chargeback = is_chargeback
         if transaction_id is not None:
             self._transaction_id = transaction_id
         if installment_plan_id is not None:
@@ -205,25 +210,25 @@ class PgtlDto(object):
         self._trace_id = trace_id
 
     @property
-    def created_date(self):
-        """Gets the created_date of this PgtlDto.  # noqa: E501
+    def capture_id(self):
+        """Gets the capture_id of this PgtlDto.  # noqa: E501
 
 
-        :return: The created_date of this PgtlDto.  # noqa: E501
+        :return: The capture_id of this PgtlDto.  # noqa: E501
         :rtype: str
         """
-        return self._created_date
+        return self._capture_id
 
-    @created_date.setter
-    def created_date(self, created_date):
-        """Sets the created_date of this PgtlDto.
+    @capture_id.setter
+    def capture_id(self, capture_id):
+        """Sets the capture_id of this PgtlDto.
 
 
-        :param created_date: The created_date of this PgtlDto.  # noqa: E501
+        :param capture_id: The capture_id of this PgtlDto.  # noqa: E501
         :type: str
         """
 
-        self._created_date = created_date
+        self._capture_id = capture_id
 
     @property
     def is_chargeback(self):
@@ -248,6 +253,27 @@ class PgtlDto(object):
             raise ValueError("Invalid value for `is_chargeback`, must not be `None`")  # noqa: E501
 
         self._is_chargeback = is_chargeback
+
+    @property
+    def created_date(self):
+        """Gets the created_date of this PgtlDto.  # noqa: E501
+
+
+        :return: The created_date of this PgtlDto.  # noqa: E501
+        :rtype: str
+        """
+        return self._created_date
+
+    @created_date.setter
+    def created_date(self, created_date):
+        """Sets the created_date of this PgtlDto.
+
+
+        :param created_date: The created_date of this PgtlDto.  # noqa: E501
+        :type: str
+        """
+
+        self._created_date = created_date
 
     @property
     def transaction_id(self):

@@ -82,7 +82,7 @@ class InstallmentPlanQueryCriteria(object):
         'date_info': 'DateInfo'
     }
 
-    def __init__(self, merchant_id=0, currency_id=0, installment_plan_id=0, installment_plan_number=None, ref_order_number=None, installment_plan_amount=0, card_number=None, consumer_name=None, consumer_email=None, card_holder=None, pis_member_id=0, any_filter=None, eula=False, show_chargeback_plans=False, is_in_auto_retry=None, strategy=None, initiated_statuses=None, fraud_check_result=None, installments_plan_statuses=None, test_modes=None, delay_resolutions=None, transaction_information=None, date_info=None):  # noqa: E501
+    def __init__(self, merchant_id=None, currency_id=None, installment_plan_id=None, installment_plan_number=None, ref_order_number=None, installment_plan_amount=None, card_number=None, consumer_name=None, consumer_email=None, card_holder=None, pis_member_id=None, any_filter=None, eula=None, show_chargeback_plans=None, is_in_auto_retry=None, strategy=None, initiated_statuses=None, fraud_check_result=None, installments_plan_statuses=None, test_modes=None, delay_resolutions=None, transaction_information=None, date_info=None):  # noqa: E501
         """InstallmentPlanQueryCriteria - a model defined in Swagger"""  # noqa: E501
 
         self._merchant_id = None

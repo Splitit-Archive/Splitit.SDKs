@@ -32,25 +32,30 @@ class PaymentToken(object):
     """
     swagger_types = {
         'token': 'str',
-        'type': 'str'
+        'type': 'str',
+        'billing_data': 'object'
     }
 
     attribute_map = {
         'token': 'Token',
-        'type': 'Type'
+        'type': 'Type',
+        'billing_data': 'BillingData'
     }
 
-    def __init__(self, token=None, type=None):  # noqa: E501
+    def __init__(self, token=None, type=None, billing_data=None):  # noqa: E501
         """PaymentToken - a model defined in Swagger"""  # noqa: E501
 
         self._token = None
         self._type = None
+        self._billing_data = None
         self.discriminator = None
 
         if token is not None:
             self._token = token
         if type is not None:
             self._type = type
+        if billing_data is not None:
+            self._billing_data = billing_data
 
     @property
     def token(self):
@@ -93,6 +98,27 @@ class PaymentToken(object):
         """
 
         self._type = type
+
+    @property
+    def billing_data(self):
+        """Gets the billing_data of this PaymentToken.  # noqa: E501
+
+
+        :return: The billing_data of this PaymentToken.  # noqa: E501
+        :rtype: object
+        """
+        return self._billing_data
+
+    @billing_data.setter
+    def billing_data(self, billing_data):
+        """Sets the billing_data of this PaymentToken.
+
+
+        :param billing_data: The billing_data of this PaymentToken.  # noqa: E501
+        :type: object
+        """
+
+        self._billing_data = billing_data
 
     def to_dict(self):
         """Returns the model properties as a dict"""

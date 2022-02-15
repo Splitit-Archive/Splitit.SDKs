@@ -6,8 +6,9 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **result** | **bool** |  | 
 **trace_id** | **str** |  | [optional] 
-**created_date** | **str** |  | [optional] 
+**capture_id** | **str** |  | [optional] 
 **is_chargeback** | **bool** |  | 
+**created_date** | **str** |  | [optional] 
 **transaction_id** | **str** |  | [optional] 
 **installment_plan_id** | **int** |  | [optional] 
 **complete_response_xml** | **str** |  | [optional] 

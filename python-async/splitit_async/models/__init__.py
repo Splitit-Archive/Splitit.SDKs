@@ -29,6 +29,8 @@ from splitit_async.models.chargeback_request import ChargebackRequest
 from splitit_async.models.create_installment_plan_legacy_response import CreateInstallmentPlanLegacyResponse
 from splitit_async.models.create_installment_plan_request import CreateInstallmentPlanRequest
 from splitit_async.models.delay_resolution import DelayResolution
+from splitit_async.models.dispute_status import DisputeStatus
+from splitit_async.models.disputes import Disputes
 from splitit_async.models.error import Error
 from splitit_async.models.events_endpoints import EventsEndpoints
 from splitit_async.models.external_auth import ExternalAuth
@@ -75,6 +77,7 @@ from splitit_async.models.paging_request_header import PagingRequestHeader
 from splitit_async.models.paging_response_header import PagingResponseHeader
 from splitit_async.models.payment_form_message import PaymentFormMessage
 from splitit_async.models.payment_form_message_type import PaymentFormMessageType
+from splitit_async.models.payment_methods import PaymentMethods
 from splitit_async.models.payment_token import PaymentToken
 from splitit_async.models.payment_wizard_data import PaymentWizardData
 from splitit_async.models.pgtl_dto import PgtlDto

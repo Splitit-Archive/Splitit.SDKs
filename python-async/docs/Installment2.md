@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **transaction_results** | [**list[TransactionResult]**](TransactionResult.md) |  | [optional] 
 **card_details** | [**CardData**](CardData.md) |  | [optional] 
 **result** | **bool** |  | [optional] 
+**payment_method** | **str** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

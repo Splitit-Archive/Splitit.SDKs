@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **is_chargeback** | **bool** |  | 
 **avs_result** | [**CardResult**](CardResult.md) |  | [optional] 
 **cvc_result** | [**CardResult**](CardResult.md) |  | [optional] 
+**is_in_dispute** | **bool** |  | [optional] 
+**dispute_status** | [**DisputeStatus**](DisputeStatus.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
