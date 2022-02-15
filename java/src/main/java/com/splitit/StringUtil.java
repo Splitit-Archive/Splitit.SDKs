@@ -13,7 +13,7 @@
 
 package com.splitit;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:14:57.863Z")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
