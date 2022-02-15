@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * Installment2
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-02T10:18:45.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
 public class Installment2  {
   @SerializedName("InstallmentNumber")
   private Integer installmentNumber = null;
@@ -71,6 +71,9 @@ public class Installment2  {
 
   @SerializedName("Result")
   private Boolean result = null;
+
+  @SerializedName("PaymentMethod")
+  private String paymentMethod = null;
 
   public Installment2 installmentNumber(Integer installmentNumber) {
     this.installmentNumber = installmentNumber;
@@ -296,6 +299,24 @@ public class Installment2  {
     this.result = result;
   }
 
+  public Installment2 paymentMethod(String paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    return this;
+  }
+
+   /**
+   * Get paymentMethod
+   * @return paymentMethod
+  **/
+  @ApiModelProperty(value = "")
+  public String getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  public void setPaymentMethod(String paymentMethod) {
+    this.paymentMethod = paymentMethod;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -317,12 +338,13 @@ public class Installment2  {
         Objects.equals(this.status, installment2.status) &&
         Objects.equals(this.transactionResults, installment2.transactionResults) &&
         Objects.equals(this.cardDetails, installment2.cardDetails) &&
-        Objects.equals(this.result, installment2.result);
+        Objects.equals(this.result, installment2.result) &&
+        Objects.equals(this.paymentMethod, installment2.paymentMethod);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(installmentNumber, amount, originalAmount, refundAmount, processDateTime, isRefund, requiredCredit, createdDateTime, status, transactionResults, cardDetails, result);
+    return Objects.hash(installmentNumber, amount, originalAmount, refundAmount, processDateTime, isRefund, requiredCredit, createdDateTime, status, transactionResults, cardDetails, result, paymentMethod);
   }
 
 
@@ -344,6 +366,7 @@ public class Installment2  {
     sb.append("    transactionResults: ").append(toIndentedString(transactionResults)).append("\n");
     sb.append("    cardDetails: ").append(toIndentedString(cardDetails)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
     sb.append("}");
     return sb.toString();
   }

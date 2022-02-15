@@ -5,7 +5,7 @@
     <artifactId>splitit-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>splitit-java-sdk</name>
-    <version>1.6.9</version>
+    <version>1.6.5518</version>
     <url>https://www.splitit.com/developers/overview</url>
     <description>Splitit Java SDK</description>
     <scm>
@@ -145,7 +145,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -153,11 +153,38 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                <!-- GPG keyname var set in the settings.xml maven file -->
+                                <keyname>${gpg.keyname}</keyname>
+                                </configuration>                                
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.8</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                        <serverId>ossrh</serverId><!-- Server config in settings.xml -->
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>                    
                 </plugins>
             </build>
+
+            <distributionManagement>
+                <snapshotRepository>
+                <id>ossrh</id><!-- Server config in settings.xml -->
+                <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>                
+                </snapshotRepository>
+                <repository>
+                <id>ossrh</id><!-- Server config in settings.xml -->
+                <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
         </profile>
     </profiles>
 

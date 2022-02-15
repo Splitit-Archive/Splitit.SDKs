@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * LearnMoreDetailsRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-02T10:18:45.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
 public class LearnMoreDetailsRequest extends ModelWithHeader {
   @SerializedName("Amount")
   private MoneyWithCurrencyCode amount = null;

@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.splitit.sdk.model.CardData;
 import com.splitit.sdk.model.ConsumerData;
+import com.splitit.sdk.model.Disputes;
 import com.splitit.sdk.model.FraudCheck;
 import com.splitit.sdk.model.Installment2;
 import com.splitit.sdk.model.MerchantRef;
@@ -43,7 +44,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * InstallmentPlan
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-02T10:18:45.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
 public class InstallmentPlan  {
   @SerializedName("InstallmentPlanNumber")
   private String installmentPlanNumber = null;
@@ -56,6 +57,9 @@ public class InstallmentPlan  {
 
   @SerializedName("OutstandingAmount")
   private Money outstandingAmount = null;
+
+  @SerializedName("Disputes")
+  private Disputes disputes = null;
 
   @SerializedName("NumberOfInstallments")
   private Integer numberOfInstallments = null;
@@ -132,6 +136,12 @@ public class InstallmentPlan  {
   @SerializedName("IsInAutoRetry")
   private Boolean isInAutoRetry = null;
 
+  @SerializedName("PaymentMethod")
+  private String paymentMethod = null;
+
+  @SerializedName("AllowCardUpdateOnSplititPortals")
+  private Boolean allowCardUpdateOnSplititPortals = null;
+
   public InstallmentPlan installmentPlanNumber(String installmentPlanNumber) {
     this.installmentPlanNumber = installmentPlanNumber;
     return this;
@@ -202,6 +212,24 @@ public class InstallmentPlan  {
 
   public void setOutstandingAmount(Money outstandingAmount) {
     this.outstandingAmount = outstandingAmount;
+  }
+
+  public InstallmentPlan disputes(Disputes disputes) {
+    this.disputes = disputes;
+    return this;
+  }
+
+   /**
+   * Get disputes
+   * @return disputes
+  **/
+  @ApiModelProperty(value = "")
+  public Disputes getDisputes() {
+    return disputes;
+  }
+
+  public void setDisputes(Disputes disputes) {
+    this.disputes = disputes;
   }
 
   public InstallmentPlan numberOfInstallments(Integer numberOfInstallments) {
@@ -678,6 +706,42 @@ public class InstallmentPlan  {
     this.isInAutoRetry = isInAutoRetry;
   }
 
+  public InstallmentPlan paymentMethod(String paymentMethod) {
+    this.paymentMethod = paymentMethod;
+    return this;
+  }
+
+   /**
+   * Get paymentMethod
+   * @return paymentMethod
+  **/
+  @ApiModelProperty(value = "")
+  public String getPaymentMethod() {
+    return paymentMethod;
+  }
+
+  public void setPaymentMethod(String paymentMethod) {
+    this.paymentMethod = paymentMethod;
+  }
+
+  public InstallmentPlan allowCardUpdateOnSplititPortals(Boolean allowCardUpdateOnSplititPortals) {
+    this.allowCardUpdateOnSplititPortals = allowCardUpdateOnSplititPortals;
+    return this;
+  }
+
+   /**
+   * Get allowCardUpdateOnSplititPortals
+   * @return allowCardUpdateOnSplititPortals
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isAllowCardUpdateOnSplititPortals() {
+    return allowCardUpdateOnSplititPortals;
+  }
+
+  public void setAllowCardUpdateOnSplititPortals(Boolean allowCardUpdateOnSplititPortals) {
+    this.allowCardUpdateOnSplititPortals = allowCardUpdateOnSplititPortals;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -692,6 +756,7 @@ public class InstallmentPlan  {
         Objects.equals(this.installmentPlanStatus, installmentPlan.installmentPlanStatus) &&
         Objects.equals(this.amount, installmentPlan.amount) &&
         Objects.equals(this.outstandingAmount, installmentPlan.outstandingAmount) &&
+        Objects.equals(this.disputes, installmentPlan.disputes) &&
         Objects.equals(this.numberOfInstallments, installmentPlan.numberOfInstallments) &&
         Objects.equals(this.numberOfProcessedInstallments, installmentPlan.numberOfProcessedInstallments) &&
         Objects.equals(this.originalAmount, installmentPlan.originalAmount) &&
@@ -716,12 +781,14 @@ public class InstallmentPlan  {
         Objects.equals(this.installments, installmentPlan.installments) &&
         Objects.equals(this.secureAuthorizations, installmentPlan.secureAuthorizations) &&
         Objects.equals(this.logoUrl, installmentPlan.logoUrl) &&
-        Objects.equals(this.isInAutoRetry, installmentPlan.isInAutoRetry);
+        Objects.equals(this.isInAutoRetry, installmentPlan.isInAutoRetry) &&
+        Objects.equals(this.paymentMethod, installmentPlan.paymentMethod) &&
+        Objects.equals(this.allowCardUpdateOnSplititPortals, installmentPlan.allowCardUpdateOnSplititPortals);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(installmentPlanNumber, installmentPlanStatus, amount, outstandingAmount, numberOfInstallments, numberOfProcessedInstallments, originalAmount, refundAmount, consumer, activeCard, fraudCheck, merchant, refOrderNumber, purchaseMethod, strategy, delayResolution, extendedParams, isFullCaptured, isChargedBack, arePaymentsOnHold, scpFundingPercent, fundingStatus, testMode, creationDateTime, lifeTimeUrlExpirationTime, installments, secureAuthorizations, logoUrl, isInAutoRetry);
+    return Objects.hash(installmentPlanNumber, installmentPlanStatus, amount, outstandingAmount, disputes, numberOfInstallments, numberOfProcessedInstallments, originalAmount, refundAmount, consumer, activeCard, fraudCheck, merchant, refOrderNumber, purchaseMethod, strategy, delayResolution, extendedParams, isFullCaptured, isChargedBack, arePaymentsOnHold, scpFundingPercent, fundingStatus, testMode, creationDateTime, lifeTimeUrlExpirationTime, installments, secureAuthorizations, logoUrl, isInAutoRetry, paymentMethod, allowCardUpdateOnSplititPortals);
   }
 
 
@@ -735,6 +802,7 @@ public class InstallmentPlan  {
     sb.append("    installmentPlanStatus: ").append(toIndentedString(installmentPlanStatus)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    outstandingAmount: ").append(toIndentedString(outstandingAmount)).append("\n");
+    sb.append("    disputes: ").append(toIndentedString(disputes)).append("\n");
     sb.append("    numberOfInstallments: ").append(toIndentedString(numberOfInstallments)).append("\n");
     sb.append("    numberOfProcessedInstallments: ").append(toIndentedString(numberOfProcessedInstallments)).append("\n");
     sb.append("    originalAmount: ").append(toIndentedString(originalAmount)).append("\n");
@@ -760,6 +828,8 @@ public class InstallmentPlan  {
     sb.append("    secureAuthorizations: ").append(toIndentedString(secureAuthorizations)).append("\n");
     sb.append("    logoUrl: ").append(toIndentedString(logoUrl)).append("\n");
     sb.append("    isInAutoRetry: ").append(toIndentedString(isInAutoRetry)).append("\n");
+    sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
+    sb.append("    allowCardUpdateOnSplititPortals: ").append(toIndentedString(allowCardUpdateOnSplititPortals)).append("\n");
     sb.append("}");
     return sb.toString();
   }

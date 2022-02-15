@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **isOpenedInIframe** | **Boolean** |  | 
 **is3dSecureInPopup** | **Boolean** |  |  [optional]
 **paymentFormMessage** | **String** |  |  [optional]
+**setShortUrl** | **Boolean** |  | 
 
 
 

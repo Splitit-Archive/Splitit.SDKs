@@ -2,8 +2,8 @@
 
 splitit-web-api-public-sdk
 - API version: 1.0.0
-  - Build date: 2021-08-02T10:18:45.756Z
-- SDK Version: 1.6.9
+  - Build date: 2022-02-15T07:09:09.206Z
+- SDK Version: 1.6.5518
 
 ## Requirements
 
@@ -147,6 +147,8 @@ Class | Method | HTTP request | Description
  - [CreateInstallmentPlanLegacyResponse](docs/CreateInstallmentPlanLegacyResponse.md)
  - [CreateInstallmentPlanRequest](docs/CreateInstallmentPlanRequest.md)
  - [DelayResolution](docs/DelayResolution.md)
+ - [DisputeStatus](docs/DisputeStatus.md)
+ - [Disputes](docs/Disputes.md)
  - [Error](docs/Error.md)
  - [EventsEndpoints](docs/EventsEndpoints.md)
  - [ExternalAuth](docs/ExternalAuth.md)
@@ -193,6 +195,7 @@ Class | Method | HTTP request | Description
  - [PagingResponseHeader](docs/PagingResponseHeader.md)
  - [PaymentFormMessage](docs/PaymentFormMessage.md)
  - [PaymentFormMessageType](docs/PaymentFormMessageType.md)
+ - [PaymentMethods](docs/PaymentMethods.md)
  - [PaymentToken](docs/PaymentToken.md)
  - [PaymentWizardData](docs/PaymentWizardData.md)
  - [PgtlDto](docs/PgtlDto.md)

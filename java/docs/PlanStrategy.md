@@ -20,5 +20,7 @@
 
 * `SECUREDPLAN3B` (value: `"SecuredPlan3B"`)
 
+* `SECUREDPLAN2A` (value: `"SecuredPlan2A"`)
+
 
 

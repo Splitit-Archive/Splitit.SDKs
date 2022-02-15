@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **isChargeback** | **Boolean** |  | 
 **avSResult** | [**CardResult**](CardResult.md) |  |  [optional]
 **cvCResult** | [**CardResult**](CardResult.md) |  |  [optional]
+**isInDispute** | **Boolean** |  |  [optional]
+**disputeStatus** | [**DisputeStatus**](DisputeStatus.md) |  |  [optional]
 
 
 

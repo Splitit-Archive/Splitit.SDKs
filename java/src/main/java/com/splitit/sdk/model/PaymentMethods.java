@@ -27,30 +27,20 @@ import com.google.gson.stream.JsonWriter;
 /**
  * 
  */
-@JsonAdapter(PlanStrategy.Adapter.class)
-public enum PlanStrategy {
+@JsonAdapter(PaymentMethods.Adapter.class)
+public enum PaymentMethods {
   
-  SECUREDPLAN("SecuredPlan"),
+  APPLEPAY("ApplePay"),
   
-  NONSECUREDPLAN("NonSecuredPlan"),
+  GOOGLEPAY("GooglePay"),
   
-  SECUREDPLANCAPTUREEXISTINGSECURITYAUTH("SecuredPlanCaptureExistingSecurityAuth"),
+  CREDITCARD("CreditCard"),
   
-  SECUREDPLAN3("SecuredPlan3"),
-  
-  SINGLEPAYMENT("SinglePayment"),
-  
-  EXTERNALINSTALLMENTPROVIDER("ExternalInstallmentProvider"),
-  
-  SECUREDPLAN3A("SecuredPlan3A"),
-  
-  SECUREDPLAN3B("SecuredPlan3B"),
-  
-  SECUREDPLAN2A("SecuredPlan2A");
+  PAYSAFEISSUEDCARDID("PaysafeIssuedCardID");
 
   private String value;
 
-  PlanStrategy(String value) {
+  PaymentMethods(String value) {
     this.value = value;
   }
 
@@ -63,8 +53,8 @@ public enum PlanStrategy {
     return String.valueOf(value);
   }
 
-  public static PlanStrategy fromValue(String text) {
-    for (PlanStrategy b : PlanStrategy.values()) {
+  public static PaymentMethods fromValue(String text) {
+    for (PaymentMethods b : PaymentMethods.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }
@@ -72,16 +62,16 @@ public enum PlanStrategy {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<PlanStrategy> {
+  public static class Adapter extends TypeAdapter<PaymentMethods> {
     @Override
-    public void write(final JsonWriter jsonWriter, final PlanStrategy enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final PaymentMethods enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public PlanStrategy read(final JsonReader jsonReader) throws IOException {
+    public PaymentMethods read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return PlanStrategy.fromValue(String.valueOf(value));
+      return PaymentMethods.fromValue(String.valueOf(value));
     }
   }
 }

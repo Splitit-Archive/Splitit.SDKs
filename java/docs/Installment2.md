@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **transactionResults** | [**List&lt;TransactionResult&gt;**](TransactionResult.md) |  |  [optional]
 **cardDetails** | [**CardData**](CardData.md) |  |  [optional]
 **result** | **Boolean** |  |  [optional]
+**paymentMethod** | **String** |  |  [optional]
 
 
 

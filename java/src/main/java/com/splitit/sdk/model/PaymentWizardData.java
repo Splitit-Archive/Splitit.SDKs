@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * PaymentWizardData
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-02T10:18:45.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
 public class PaymentWizardData  {
   @SerializedName("RequestedNumberOfInstallments")
   private String requestedNumberOfInstallments = null;
@@ -55,6 +55,9 @@ public class PaymentWizardData  {
 
   @SerializedName("PaymentFormMessage")
   private String paymentFormMessage = null;
+
+  @SerializedName("SetShortUrl")
+  private Boolean setShortUrl = null;
 
   public PaymentWizardData requestedNumberOfInstallments(String requestedNumberOfInstallments) {
     this.requestedNumberOfInstallments = requestedNumberOfInstallments;
@@ -218,6 +221,24 @@ public class PaymentWizardData  {
     this.paymentFormMessage = paymentFormMessage;
   }
 
+  public PaymentWizardData setShortUrl(Boolean setShortUrl) {
+    this.setShortUrl = setShortUrl;
+    return this;
+  }
+
+   /**
+   * Get setShortUrl
+   * @return setShortUrl
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isSetShortUrl() {
+    return setShortUrl;
+  }
+
+  public void setSetShortUrl(Boolean setShortUrl) {
+    this.setShortUrl = setShortUrl;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -236,12 +257,13 @@ public class PaymentWizardData  {
         Objects.equals(this.viewName, paymentWizardData.viewName) &&
         Objects.equals(this.isOpenedInIframe, paymentWizardData.isOpenedInIframe) &&
         Objects.equals(this.is3dSecureInPopup, paymentWizardData.is3dSecureInPopup) &&
-        Objects.equals(this.paymentFormMessage, paymentWizardData.paymentFormMessage);
+        Objects.equals(this.paymentFormMessage, paymentWizardData.paymentFormMessage) &&
+        Objects.equals(this.setShortUrl, paymentWizardData.setShortUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedNumberOfInstallments, successExitURL, errorExitURL, cancelExitURL, successAsyncUrl, viewName, isOpenedInIframe, is3dSecureInPopup, paymentFormMessage);
+    return Objects.hash(requestedNumberOfInstallments, successExitURL, errorExitURL, cancelExitURL, successAsyncUrl, viewName, isOpenedInIframe, is3dSecureInPopup, paymentFormMessage, setShortUrl);
   }
 
 
@@ -260,6 +282,7 @@ public class PaymentWizardData  {
     sb.append("    isOpenedInIframe: ").append(toIndentedString(isOpenedInIframe)).append("\n");
     sb.append("    is3dSecureInPopup: ").append(toIndentedString(is3dSecureInPopup)).append("\n");
     sb.append("    paymentFormMessage: ").append(toIndentedString(paymentFormMessage)).append("\n");
+    sb.append("    setShortUrl: ").append(toIndentedString(setShortUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

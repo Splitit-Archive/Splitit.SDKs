@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **installmentPlanStatus** | [**ReferenceEntityBase**](ReferenceEntityBase.md) |  |  [optional]
 **amount** | [**Money**](Money.md) |  |  [optional]
 **outstandingAmount** | [**Money**](Money.md) |  |  [optional]
+**disputes** | [**Disputes**](Disputes.md) |  |  [optional]
 **numberOfInstallments** | **Integer** |  | 
 **numberOfProcessedInstallments** | **Integer** |  | 
 **originalAmount** | [**Money**](Money.md) |  |  [optional]
@@ -33,6 +34,8 @@ Name | Type | Description | Notes
 **secureAuthorizations** | [**List&lt;ReAuthorization&gt;**](ReAuthorization.md) |  |  [optional]
 **logoUrl** | **String** |  |  [optional]
 **isInAutoRetry** | **Boolean** |  | 
+**paymentMethod** | **String** |  |  [optional]
+**allowCardUpdateOnSplititPortals** | **Boolean** |  | 
 
 
 

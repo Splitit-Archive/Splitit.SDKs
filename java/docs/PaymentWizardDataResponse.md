@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **isOpenedInIframe** | **Boolean** |  | 
 **is3dSecureInPopup** | **Boolean** |  |  [optional]
 **paymentFormMessage** | **String** |  |  [optional]
+**setShortUrl** | **Boolean** |  | 
 **showAddressElements** | **String** |  |  [optional]
 **currencyDisplay** | [**ExtendedCurrency**](ExtendedCurrency.md) |  |  [optional]
 **forceDisplayImportantNotes** | **Boolean** |  | 
@@ -39,6 +40,9 @@ Name | Type | Description | Notes
 **paymentFormMessages** | [**List&lt;PaymentFormMessage&gt;**](PaymentFormMessage.md) |  |  [optional]
 **displayProperties** | **Map&lt;String, String&gt;** |  |  [optional]
 **termsAndConditions** | [**TermsAndConditions**](TermsAndConditions.md) |  |  [optional]
+**paymentMethods** | [**List&lt;PaymentMethods&gt;**](PaymentMethods.md) |  |  [optional]
+**status** | [**InstallmentPlanStatus**](InstallmentPlanStatus.md) |  | 
+**isAttempt3Dsecure** | **Boolean** |  | 
 
 
 

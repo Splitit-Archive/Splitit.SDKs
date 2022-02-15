@@ -23,31 +23,53 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.threeten.bp.OffsetDateTime;
 
 /**
- * GetInitiatedInstallmentPlanRequest
+ * Disputes
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
-public class GetInitiatedInstallmentPlanRequest extends ModelWithHeader {
-  @SerializedName("InstallmentPlanNumber")
-  private String installmentPlanNumber = null;
+public class Disputes  {
+  @SerializedName("InDispute")
+  private Boolean inDispute = null;
 
-  public GetInitiatedInstallmentPlanRequest installmentPlanNumber(String installmentPlanNumber) {
-    this.installmentPlanNumber = installmentPlanNumber;
+  @SerializedName("EvidenceProvidedOn")
+  private OffsetDateTime evidenceProvidedOn = null;
+
+  public Disputes inDispute(Boolean inDispute) {
+    this.inDispute = inDispute;
     return this;
   }
 
    /**
-   * Get installmentPlanNumber
-   * @return installmentPlanNumber
+   * Get inDispute
+   * @return inDispute
   **/
   @ApiModelProperty(value = "")
-  public String getInstallmentPlanNumber() {
-    return installmentPlanNumber;
+  public Boolean isInDispute() {
+    return inDispute;
   }
 
-  public void setInstallmentPlanNumber(String installmentPlanNumber) {
-    this.installmentPlanNumber = installmentPlanNumber;
+  public void setInDispute(Boolean inDispute) {
+    this.inDispute = inDispute;
+  }
+
+  public Disputes evidenceProvidedOn(OffsetDateTime evidenceProvidedOn) {
+    this.evidenceProvidedOn = evidenceProvidedOn;
+    return this;
+  }
+
+   /**
+   * Get evidenceProvidedOn
+   * @return evidenceProvidedOn
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getEvidenceProvidedOn() {
+    return evidenceProvidedOn;
+  }
+
+  public void setEvidenceProvidedOn(OffsetDateTime evidenceProvidedOn) {
+    this.evidenceProvidedOn = evidenceProvidedOn;
   }
 
 
@@ -59,23 +81,25 @@ public class GetInitiatedInstallmentPlanRequest extends ModelWithHeader {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetInitiatedInstallmentPlanRequest getInitiatedInstallmentPlanRequest = (GetInitiatedInstallmentPlanRequest) o;
-    return Objects.equals(this.installmentPlanNumber, getInitiatedInstallmentPlanRequest.installmentPlanNumber);
+    Disputes disputes = (Disputes) o;
+    return Objects.equals(this.inDispute, disputes.inDispute) &&
+        Objects.equals(this.evidenceProvidedOn, disputes.evidenceProvidedOn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(installmentPlanNumber);
+    return Objects.hash(inDispute, evidenceProvidedOn);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetInitiatedInstallmentPlanRequest {\n");
-    sb.append("    requestHeader: ").append(toIndentedString(requestHeader)).append("\n");
+    sb.append("class Disputes {\n");
     
-    sb.append("    installmentPlanNumber: ").append(toIndentedString(installmentPlanNumber)).append("\n");
+    
+    sb.append("    inDispute: ").append(toIndentedString(inDispute)).append("\n");
+    sb.append("    evidenceProvidedOn: ").append(toIndentedString(evidenceProvidedOn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

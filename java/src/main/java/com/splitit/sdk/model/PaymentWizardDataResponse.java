@@ -23,7 +23,9 @@ import com.google.gson.stream.JsonWriter;
 import com.splitit.sdk.model.CardBrand;
 import com.splitit.sdk.model.CardType;
 import com.splitit.sdk.model.ExtendedCurrency;
+import com.splitit.sdk.model.InstallmentPlanStatus;
 import com.splitit.sdk.model.PaymentFormMessage;
+import com.splitit.sdk.model.PaymentMethods;
 import com.splitit.sdk.model.PaymentWizardData;
 import com.splitit.sdk.model.TermsAndConditions;
 import io.swagger.annotations.ApiModel;
@@ -37,7 +39,7 @@ import java.util.Map;
 /**
  * PaymentWizardDataResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-02T10:18:45.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
 public class PaymentWizardDataResponse  {
   @SerializedName("RequestedNumberOfInstallments")
   private String requestedNumberOfInstallments = null;
@@ -65,6 +67,9 @@ public class PaymentWizardDataResponse  {
 
   @SerializedName("PaymentFormMessage")
   private String paymentFormMessage = null;
+
+  @SerializedName("SetShortUrl")
+  private Boolean setShortUrl = null;
 
   @SerializedName("ShowAddressElements")
   private String showAddressElements = null;
@@ -143,6 +148,15 @@ public class PaymentWizardDataResponse  {
 
   @SerializedName("TermsAndConditions")
   private TermsAndConditions termsAndConditions = null;
+
+  @SerializedName("PaymentMethods")
+  private List<PaymentMethods> paymentMethods = null;
+
+  @SerializedName("Status")
+  private InstallmentPlanStatus status = null;
+
+  @SerializedName("IsAttempt3Dsecure")
+  private Boolean isAttempt3Dsecure = null;
 
   public PaymentWizardDataResponse requestedNumberOfInstallments(String requestedNumberOfInstallments) {
     this.requestedNumberOfInstallments = requestedNumberOfInstallments;
@@ -304,6 +318,24 @@ public class PaymentWizardDataResponse  {
 
   public void setPaymentFormMessage(String paymentFormMessage) {
     this.paymentFormMessage = paymentFormMessage;
+  }
+
+  public PaymentWizardDataResponse setShortUrl(Boolean setShortUrl) {
+    this.setShortUrl = setShortUrl;
+    return this;
+  }
+
+   /**
+   * Get setShortUrl
+   * @return setShortUrl
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isSetShortUrl() {
+    return setShortUrl;
+  }
+
+  public void setSetShortUrl(Boolean setShortUrl) {
+    this.setShortUrl = setShortUrl;
   }
 
   public PaymentWizardDataResponse showAddressElements(String showAddressElements) {
@@ -806,6 +838,68 @@ public class PaymentWizardDataResponse  {
     this.termsAndConditions = termsAndConditions;
   }
 
+  public PaymentWizardDataResponse paymentMethods(List<PaymentMethods> paymentMethods) {
+    this.paymentMethods = paymentMethods;
+    return this;
+  }
+
+  public PaymentWizardDataResponse addPaymentMethodsItem(PaymentMethods paymentMethodsItem) {
+    if (this.paymentMethods == null) {
+      this.paymentMethods = new ArrayList<PaymentMethods>();
+    }
+    this.paymentMethods.add(paymentMethodsItem);
+    return this;
+  }
+
+   /**
+   * Get paymentMethods
+   * @return paymentMethods
+  **/
+  @ApiModelProperty(value = "")
+  public List<PaymentMethods> getPaymentMethods() {
+    return paymentMethods;
+  }
+
+  public void setPaymentMethods(List<PaymentMethods> paymentMethods) {
+    this.paymentMethods = paymentMethods;
+  }
+
+  public PaymentWizardDataResponse status(InstallmentPlanStatus status) {
+    this.status = status;
+    return this;
+  }
+
+   /**
+   * Get status
+   * @return status
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public InstallmentPlanStatus getStatus() {
+    return status;
+  }
+
+  public void setStatus(InstallmentPlanStatus status) {
+    this.status = status;
+  }
+
+  public PaymentWizardDataResponse isAttempt3Dsecure(Boolean isAttempt3Dsecure) {
+    this.isAttempt3Dsecure = isAttempt3Dsecure;
+    return this;
+  }
+
+   /**
+   * Get isAttempt3Dsecure
+   * @return isAttempt3Dsecure
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public Boolean isIsAttempt3Dsecure() {
+    return isAttempt3Dsecure;
+  }
+
+  public void setIsAttempt3Dsecure(Boolean isAttempt3Dsecure) {
+    this.isAttempt3Dsecure = isAttempt3Dsecure;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -825,6 +919,7 @@ public class PaymentWizardDataResponse  {
         Objects.equals(this.isOpenedInIframe, paymentWizardDataResponse.isOpenedInIframe) &&
         Objects.equals(this.is3dSecureInPopup, paymentWizardDataResponse.is3dSecureInPopup) &&
         Objects.equals(this.paymentFormMessage, paymentWizardDataResponse.paymentFormMessage) &&
+        Objects.equals(this.setShortUrl, paymentWizardDataResponse.setShortUrl) &&
         Objects.equals(this.showAddressElements, paymentWizardDataResponse.showAddressElements) &&
         Objects.equals(this.currencyDisplay, paymentWizardDataResponse.currencyDisplay) &&
         Objects.equals(this.forceDisplayImportantNotes, paymentWizardDataResponse.forceDisplayImportantNotes) &&
@@ -850,12 +945,15 @@ public class PaymentWizardDataResponse  {
         Objects.equals(this.potentialCardBrands, paymentWizardDataResponse.potentialCardBrands) &&
         Objects.equals(this.paymentFormMessages, paymentWizardDataResponse.paymentFormMessages) &&
         Objects.equals(this.displayProperties, paymentWizardDataResponse.displayProperties) &&
-        Objects.equals(this.termsAndConditions, paymentWizardDataResponse.termsAndConditions);
+        Objects.equals(this.termsAndConditions, paymentWizardDataResponse.termsAndConditions) &&
+        Objects.equals(this.paymentMethods, paymentWizardDataResponse.paymentMethods) &&
+        Objects.equals(this.status, paymentWizardDataResponse.status) &&
+        Objects.equals(this.isAttempt3Dsecure, paymentWizardDataResponse.isAttempt3Dsecure);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestedNumberOfInstallments, successExitURL, errorExitURL, cancelExitURL, successAsyncUrl, viewName, isOpenedInIframe, is3dSecureInPopup, paymentFormMessage, showAddressElements, currencyDisplay, forceDisplayImportantNotes, showShopperDetailsExpendedOnStart, showPaymentScheduleRequiredCredit, isShopperEmailMandatory, isShopperPhoneMandatory, numberOfInstallmentsSelectionsOption, is3ds2Supported, processorName, addressIsReadonly, phoneIsReadOnly, emailIsReadOnly, showLearnMore, showMobilePhone, showCloseDialogBeforeAbandon, logoURL, defaultNumOfInstallments, privacyPolicyUrl, termsAndConditionsUrl, learnMoreUrl, potentialCardTypes, potentialCardBrands, paymentFormMessages, displayProperties, termsAndConditions);
+    return Objects.hash(requestedNumberOfInstallments, successExitURL, errorExitURL, cancelExitURL, successAsyncUrl, viewName, isOpenedInIframe, is3dSecureInPopup, paymentFormMessage, setShortUrl, showAddressElements, currencyDisplay, forceDisplayImportantNotes, showShopperDetailsExpendedOnStart, showPaymentScheduleRequiredCredit, isShopperEmailMandatory, isShopperPhoneMandatory, numberOfInstallmentsSelectionsOption, is3ds2Supported, processorName, addressIsReadonly, phoneIsReadOnly, emailIsReadOnly, showLearnMore, showMobilePhone, showCloseDialogBeforeAbandon, logoURL, defaultNumOfInstallments, privacyPolicyUrl, termsAndConditionsUrl, learnMoreUrl, potentialCardTypes, potentialCardBrands, paymentFormMessages, displayProperties, termsAndConditions, paymentMethods, status, isAttempt3Dsecure);
   }
 
 
@@ -874,6 +972,7 @@ public class PaymentWizardDataResponse  {
     sb.append("    isOpenedInIframe: ").append(toIndentedString(isOpenedInIframe)).append("\n");
     sb.append("    is3dSecureInPopup: ").append(toIndentedString(is3dSecureInPopup)).append("\n");
     sb.append("    paymentFormMessage: ").append(toIndentedString(paymentFormMessage)).append("\n");
+    sb.append("    setShortUrl: ").append(toIndentedString(setShortUrl)).append("\n");
     sb.append("    showAddressElements: ").append(toIndentedString(showAddressElements)).append("\n");
     sb.append("    currencyDisplay: ").append(toIndentedString(currencyDisplay)).append("\n");
     sb.append("    forceDisplayImportantNotes: ").append(toIndentedString(forceDisplayImportantNotes)).append("\n");
@@ -900,6 +999,9 @@ public class PaymentWizardDataResponse  {
     sb.append("    paymentFormMessages: ").append(toIndentedString(paymentFormMessages)).append("\n");
     sb.append("    displayProperties: ").append(toIndentedString(displayProperties)).append("\n");
     sb.append("    termsAndConditions: ").append(toIndentedString(termsAndConditions)).append("\n");
+    sb.append("    paymentMethods: ").append(toIndentedString(paymentMethods)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    isAttempt3Dsecure: ").append(toIndentedString(isAttempt3Dsecure)).append("\n");
     sb.append("}");
     return sb.toString();
   }

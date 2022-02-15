@@ -27,13 +27,16 @@ import java.io.IOException;
 /**
  * PaymentToken
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-02T10:18:45.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
 public class PaymentToken  {
   @SerializedName("Token")
   private String token = null;
 
   @SerializedName("Type")
   private String type = null;
+
+  @SerializedName("BillingData")
+  private Object billingData = null;
 
   public PaymentToken token(String token) {
     this.token = token;
@@ -71,6 +74,24 @@ public class PaymentToken  {
     this.type = type;
   }
 
+  public PaymentToken billingData(Object billingData) {
+    this.billingData = billingData;
+    return this;
+  }
+
+   /**
+   * Get billingData
+   * @return billingData
+  **/
+  @ApiModelProperty(value = "")
+  public Object getBillingData() {
+    return billingData;
+  }
+
+  public void setBillingData(Object billingData) {
+    this.billingData = billingData;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,12 +103,13 @@ public class PaymentToken  {
     }
     PaymentToken paymentToken = (PaymentToken) o;
     return Objects.equals(this.token, paymentToken.token) &&
-        Objects.equals(this.type, paymentToken.type);
+        Objects.equals(this.type, paymentToken.type) &&
+        Objects.equals(this.billingData, paymentToken.billingData);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(token, type);
+    return Objects.hash(token, type, billingData);
   }
 
 
@@ -99,6 +121,7 @@ public class PaymentToken  {
     
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    billingData: ").append(toIndentedString(billingData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

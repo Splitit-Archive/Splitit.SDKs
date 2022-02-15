@@ -27,30 +27,22 @@ import com.google.gson.stream.JsonWriter;
 /**
  * 
  */
-@JsonAdapter(PlanStrategy.Adapter.class)
-public enum PlanStrategy {
+@JsonAdapter(DisputeStatus.Adapter.class)
+public enum DisputeStatus {
   
-  SECUREDPLAN("SecuredPlan"),
+  OPEN("Open"),
   
-  NONSECUREDPLAN("NonSecuredPlan"),
+  WON("Won"),
   
-  SECUREDPLANCAPTUREEXISTINGSECURITYAUTH("SecuredPlanCaptureExistingSecurityAuth"),
+  LOST("Lost"),
   
-  SECUREDPLAN3("SecuredPlan3"),
+  CLOSED("Closed"),
   
-  SINGLEPAYMENT("SinglePayment"),
-  
-  EXTERNALINSTALLMENTPROVIDER("ExternalInstallmentProvider"),
-  
-  SECUREDPLAN3A("SecuredPlan3A"),
-  
-  SECUREDPLAN3B("SecuredPlan3B"),
-  
-  SECUREDPLAN2A("SecuredPlan2A");
+  OTHER("Other");
 
   private String value;
 
-  PlanStrategy(String value) {
+  DisputeStatus(String value) {
     this.value = value;
   }
 
@@ -63,8 +55,8 @@ public enum PlanStrategy {
     return String.valueOf(value);
   }
 
-  public static PlanStrategy fromValue(String text) {
-    for (PlanStrategy b : PlanStrategy.values()) {
+  public static DisputeStatus fromValue(String text) {
+    for (DisputeStatus b : DisputeStatus.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }
@@ -72,16 +64,16 @@ public enum PlanStrategy {
     return null;
   }
 
-  public static class Adapter extends TypeAdapter<PlanStrategy> {
+  public static class Adapter extends TypeAdapter<DisputeStatus> {
     @Override
-    public void write(final JsonWriter jsonWriter, final PlanStrategy enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final DisputeStatus enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public PlanStrategy read(final JsonReader jsonReader) throws IOException {
+    public DisputeStatus read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return PlanStrategy.fromValue(String.valueOf(value));
+      return DisputeStatus.fromValue(String.valueOf(value));
     }
   }
 }

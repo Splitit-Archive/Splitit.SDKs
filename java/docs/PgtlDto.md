@@ -7,8 +7,9 @@ Name | Type | Description | Notes
 **id** | **Long** |  | 
 **result** | **Boolean** |  | 
 **traceId** | **String** |  |  [optional]
-**createdDate** | **String** |  |  [optional]
+**captureId** | **String** |  |  [optional]
 **isChargeback** | **Boolean** |  | 
+**createdDate** | **String** |  |  [optional]
 **transactionId** | **String** |  |  [optional]
 **installmentPlanId** | **Long** |  |  [optional]
 **completeResponseXml** | **String** |  |  [optional]

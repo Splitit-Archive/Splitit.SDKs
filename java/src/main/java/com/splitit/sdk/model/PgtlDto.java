@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * PgtlDto
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2021-08-02T10:18:45.756Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:09:09.206Z")
 public class PgtlDto  {
   @SerializedName("Id")
   private Long id = null;
@@ -40,11 +40,14 @@ public class PgtlDto  {
   @SerializedName("TraceId")
   private String traceId = null;
 
-  @SerializedName("CreatedDate")
-  private String createdDate = null;
+  @SerializedName("CaptureId")
+  private String captureId = null;
 
   @SerializedName("IsChargeback")
   private Boolean isChargeback = null;
+
+  @SerializedName("CreatedDate")
+  private String createdDate = null;
 
   @SerializedName("TransactionId")
   private String transactionId = null;
@@ -145,22 +148,22 @@ public class PgtlDto  {
     this.traceId = traceId;
   }
 
-  public PgtlDto createdDate(String createdDate) {
-    this.createdDate = createdDate;
+  public PgtlDto captureId(String captureId) {
+    this.captureId = captureId;
     return this;
   }
 
    /**
-   * Get createdDate
-   * @return createdDate
+   * Get captureId
+   * @return captureId
   **/
   @ApiModelProperty(value = "")
-  public String getCreatedDate() {
-    return createdDate;
+  public String getCaptureId() {
+    return captureId;
   }
 
-  public void setCreatedDate(String createdDate) {
-    this.createdDate = createdDate;
+  public void setCaptureId(String captureId) {
+    this.captureId = captureId;
   }
 
   public PgtlDto isChargeback(Boolean isChargeback) {
@@ -179,6 +182,24 @@ public class PgtlDto  {
 
   public void setIsChargeback(Boolean isChargeback) {
     this.isChargeback = isChargeback;
+  }
+
+  public PgtlDto createdDate(String createdDate) {
+    this.createdDate = createdDate;
+    return this;
+  }
+
+   /**
+   * Get createdDate
+   * @return createdDate
+  **/
+  @ApiModelProperty(value = "")
+  public String getCreatedDate() {
+    return createdDate;
+  }
+
+  public void setCreatedDate(String createdDate) {
+    this.createdDate = createdDate;
   }
 
   public PgtlDto transactionId(String transactionId) {
@@ -464,8 +485,9 @@ public class PgtlDto  {
     return Objects.equals(this.id, pgtlDto.id) &&
         Objects.equals(this.result, pgtlDto.result) &&
         Objects.equals(this.traceId, pgtlDto.traceId) &&
-        Objects.equals(this.createdDate, pgtlDto.createdDate) &&
+        Objects.equals(this.captureId, pgtlDto.captureId) &&
         Objects.equals(this.isChargeback, pgtlDto.isChargeback) &&
+        Objects.equals(this.createdDate, pgtlDto.createdDate) &&
         Objects.equals(this.transactionId, pgtlDto.transactionId) &&
         Objects.equals(this.installmentPlanId, pgtlDto.installmentPlanId) &&
         Objects.equals(this.completeResponseXml, pgtlDto.completeResponseXml) &&
@@ -485,7 +507,7 @@ public class PgtlDto  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, result, traceId, createdDate, isChargeback, transactionId, installmentPlanId, completeResponseXml, terminalGatewayDataId, avsMessageMessageCode, avsMessageMessageText, cvvMessageMessageCode, cvvMessageMessageText, requestedCurrencyCode, processedAmountAmount, requestedAmountAmount, resultMessageMessageCode, resultMessageMessageText, type, referencePaymentGatewayTransactionLogId);
+    return Objects.hash(id, result, traceId, captureId, isChargeback, createdDate, transactionId, installmentPlanId, completeResponseXml, terminalGatewayDataId, avsMessageMessageCode, avsMessageMessageText, cvvMessageMessageCode, cvvMessageMessageText, requestedCurrencyCode, processedAmountAmount, requestedAmountAmount, resultMessageMessageCode, resultMessageMessageText, type, referencePaymentGatewayTransactionLogId);
   }
 
 
@@ -498,8 +520,9 @@ public class PgtlDto  {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
-    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
+    sb.append("    captureId: ").append(toIndentedString(captureId)).append("\n");
     sb.append("    isChargeback: ").append(toIndentedString(isChargeback)).append("\n");
+    sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("    installmentPlanId: ").append(toIndentedString(installmentPlanId)).append("\n");
     sb.append("    completeResponseXml: ").append(toIndentedString(completeResponseXml)).append("\n");
