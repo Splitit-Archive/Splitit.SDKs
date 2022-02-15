@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * LearnMoreDetailsResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:14:57.863Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:38:02.641Z")
 public class LearnMoreDetailsResponse  {
   @SerializedName("ResponseHeader")
   private ResponseHeader responseHeader = null;
