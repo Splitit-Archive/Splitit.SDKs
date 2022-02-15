@@ -29,7 +29,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ScheduleElements
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T07:45:52.317Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2022-02-15T11:15:01.528Z")
 public class ScheduleElements  {
   @SerializedName("InstallmentNumber")
   private Integer installmentNumber = null;
