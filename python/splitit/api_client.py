@@ -78,11 +78,11 @@ class ApiClient(object):
         self._pool_threads = pool_threads
         self.rest_client = rest.RESTClientObject(configuration)
         self.default_headers = {
-            'Splitit-SDK': 'Python-asyncio-1.6.5529',
+            'Splitit-SDK': 'Python-asyncio-1.6.10',
         }
 
         # Set default User-Agent.
-        self.user_agent = 'Swagger-Codegen/1.6.5529/python'
+        self.user_agent = 'Swagger-Codegen/1.6.10/python'
         self.CreateInstallmentPlanApi = CreateInstallmentPlanApi(self)
         self.InfoApi = InfoApi(self)
         self.InfrastructureApi = InfrastructureApi(self)
