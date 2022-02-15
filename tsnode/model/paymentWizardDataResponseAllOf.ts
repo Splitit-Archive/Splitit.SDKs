@@ -14,7 +14,9 @@ import { RequestFile } from '../api';
 import { CardBrand } from './cardBrand';
 import { CardType } from './cardType';
 import { ExtendedCurrency } from './extendedCurrency';
+import { InstallmentPlanStatus } from './installmentPlanStatus';
 import { PaymentFormMessage } from './paymentFormMessage';
+import { PaymentMethods } from './paymentMethods';
 import { TermsAndConditions } from './termsAndConditions';
 
 export class PaymentWizardDataResponseAllOf {
@@ -44,6 +46,9 @@ export class PaymentWizardDataResponseAllOf {
     'paymentFormMessages'?: Array<PaymentFormMessage>;
     'displayProperties'?: { [key: string]: string; };
     'termsAndConditions'?: TermsAndConditions;
+    'paymentMethods'?: Array<PaymentMethods>;
+    'status': InstallmentPlanStatus;
+    'isAttempt3Dsecure': boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -177,6 +182,21 @@ export class PaymentWizardDataResponseAllOf {
             "name": "termsAndConditions",
             "baseName": "TermsAndConditions",
             "type": "TermsAndConditions"
+        },
+        {
+            "name": "paymentMethods",
+            "baseName": "PaymentMethods",
+            "type": "Array<PaymentMethods>"
+        },
+        {
+            "name": "status",
+            "baseName": "Status",
+            "type": "InstallmentPlanStatus"
+        },
+        {
+            "name": "isAttempt3Dsecure",
+            "baseName": "IsAttempt3Dsecure",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

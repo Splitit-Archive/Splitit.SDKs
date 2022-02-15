@@ -22,6 +22,7 @@ export class PaymentWizardData {
     'isOpenedInIframe': boolean;
     'is3dSecureInPopup'?: boolean;
     'paymentFormMessage'?: string;
+    'setShortUrl': boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -70,6 +71,11 @@ export class PaymentWizardData {
             "name": "paymentFormMessage",
             "baseName": "PaymentFormMessage",
             "type": "string"
+        },
+        {
+            "name": "setShortUrl",
+            "baseName": "SetShortUrl",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

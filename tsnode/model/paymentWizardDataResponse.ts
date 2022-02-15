@@ -14,7 +14,9 @@ import { RequestFile } from '../api';
 import { CardBrand } from './cardBrand';
 import { CardType } from './cardType';
 import { ExtendedCurrency } from './extendedCurrency';
+import { InstallmentPlanStatus } from './installmentPlanStatus';
 import { PaymentFormMessage } from './paymentFormMessage';
+import { PaymentMethods } from './paymentMethods';
 import { PaymentWizardData } from './paymentWizardData';
 import { PaymentWizardDataResponseAllOf } from './paymentWizardDataResponseAllOf';
 import { TermsAndConditions } from './termsAndConditions';
@@ -29,6 +31,7 @@ export class PaymentWizardDataResponse {
     'isOpenedInIframe': boolean;
     'is3dSecureInPopup'?: boolean;
     'paymentFormMessage'?: string;
+    'setShortUrl': boolean;
     'showAddressElements'?: string;
     'currencyDisplay'?: ExtendedCurrency;
     'forceDisplayImportantNotes': boolean;
@@ -55,6 +58,9 @@ export class PaymentWizardDataResponse {
     'paymentFormMessages'?: Array<PaymentFormMessage>;
     'displayProperties'?: { [key: string]: string; };
     'termsAndConditions'?: TermsAndConditions;
+    'paymentMethods'?: Array<PaymentMethods>;
+    'status': InstallmentPlanStatus;
+    'isAttempt3Dsecure': boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -103,6 +109,11 @@ export class PaymentWizardDataResponse {
             "name": "paymentFormMessage",
             "baseName": "PaymentFormMessage",
             "type": "string"
+        },
+        {
+            "name": "setShortUrl",
+            "baseName": "SetShortUrl",
+            "type": "boolean"
         },
         {
             "name": "showAddressElements",
@@ -233,6 +244,21 @@ export class PaymentWizardDataResponse {
             "name": "termsAndConditions",
             "baseName": "TermsAndConditions",
             "type": "TermsAndConditions"
+        },
+        {
+            "name": "paymentMethods",
+            "baseName": "PaymentMethods",
+            "type": "Array<PaymentMethods>"
+        },
+        {
+            "name": "status",
+            "baseName": "Status",
+            "type": "InstallmentPlanStatus"
+        },
+        {
+            "name": "isAttempt3Dsecure",
+            "baseName": "IsAttempt3Dsecure",
+            "type": "boolean"
         }    ];
 
     static getAttributeTypeMap() {

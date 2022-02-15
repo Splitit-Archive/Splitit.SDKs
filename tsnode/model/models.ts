@@ -22,6 +22,8 @@ export * from './createInstallmentsPlanResponseAllOf';
 export * from './currency';
 export * from './currencyAllOf';
 export * from './delayResolution';
+export * from './disputeStatus';
+export * from './disputes';
 export * from './eventsEndpoints';
 export * from './extendedCurrency';
 export * from './extendedCurrencyAllOf';
@@ -75,6 +77,7 @@ export * from './pagingRequestHeader';
 export * from './pagingResponseHeader';
 export * from './paymentFormMessage';
 export * from './paymentFormMessageType';
+export * from './paymentMethods';
 export * from './paymentToken';
 export * from './paymentWizardData';
 export * from './paymentWizardDataResponse';
@@ -142,6 +145,8 @@ import { CreateInstallmentsPlanResponseAllOf } from './createInstallmentsPlanRes
 import { Currency } from './currency';
 import { CurrencyAllOf } from './currencyAllOf';
 import { DelayResolution } from './delayResolution';
+import { DisputeStatus } from './disputeStatus';
+import { Disputes } from './disputes';
 import { EventsEndpoints } from './eventsEndpoints';
 import { ExtendedCurrency } from './extendedCurrency';
 import { ExtendedCurrencyAllOf } from './extendedCurrencyAllOf';
@@ -195,6 +200,7 @@ import { PagingRequestHeader } from './pagingRequestHeader';
 import { PagingResponseHeader } from './pagingResponseHeader';
 import { PaymentFormMessage } from './paymentFormMessage';
 import { PaymentFormMessageType } from './paymentFormMessageType';
+import { PaymentMethods } from './paymentMethods';
 import { PaymentToken } from './paymentToken';
 import { PaymentWizardData } from './paymentWizardData';
 import { PaymentWizardDataResponse } from './paymentWizardDataResponse';
@@ -256,6 +262,7 @@ let enumsMap: {[index: string]: any} = {
         "CardBrand": CardBrand,
         "CardType": CardType,
         "DelayResolution": DelayResolution,
+        "DisputeStatus": DisputeStatus,
         "FraudCheckResult": FraudCheckResult,
         "InstallmentPlanActivityStatus": InstallmentPlanActivityStatus,
         "InstallmentPlanCancelationReason": InstallmentPlanCancelationReason,
@@ -264,6 +271,7 @@ let enumsMap: {[index: string]: any} = {
         "MoneyFlows": MoneyFlows,
         "OperationType": OperationType,
         "PaymentFormMessageType": PaymentFormMessageType,
+        "PaymentMethods": PaymentMethods,
         "PlanStrategy": PlanStrategy,
         "PurchaseMethod": PurchaseMethod,
         "RefundStrategy": RefundStrategy,
@@ -292,6 +300,7 @@ let typeMap: {[index: string]: any} = {
     "CreateInstallmentsPlanResponseAllOf": CreateInstallmentsPlanResponseAllOf,
     "Currency": Currency,
     "CurrencyAllOf": CurrencyAllOf,
+    "Disputes": Disputes,
     "EventsEndpoints": EventsEndpoints,
     "ExtendedCurrency": ExtendedCurrency,
     "ExtendedCurrencyAllOf": ExtendedCurrencyAllOf,

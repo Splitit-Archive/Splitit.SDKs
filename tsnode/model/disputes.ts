@@ -12,32 +12,26 @@
 
 import { RequestFile } from '../api';
 
-export class PaymentToken {
-    'token'?: string;
-    'type'?: string;
-    'billingData'?: object;
+export class Disputes {
+    'inDispute'?: boolean;
+    'evidenceProvidedOn'?: Date;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "token",
-            "baseName": "Token",
-            "type": "string"
+            "name": "inDispute",
+            "baseName": "InDispute",
+            "type": "boolean"
         },
         {
-            "name": "type",
-            "baseName": "Type",
-            "type": "string"
-        },
-        {
-            "name": "billingData",
-            "baseName": "BillingData",
-            "type": "object"
+            "name": "evidenceProvidedOn",
+            "baseName": "EvidenceProvidedOn",
+            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {
-        return PaymentToken.attributeTypeMap;
+        return Disputes.attributeTypeMap;
     }
 }
 

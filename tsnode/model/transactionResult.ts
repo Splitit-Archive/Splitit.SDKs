@@ -12,6 +12,7 @@
 
 import { RequestFile } from '../api';
 import { CardResult } from './cardResult';
+import { DisputeStatus } from './disputeStatus';
 import { ReferenceEntityBase } from './referenceEntityBase';
 
 export class TransactionResult {
@@ -25,6 +26,8 @@ export class TransactionResult {
     'isChargeback': boolean;
     'aVSResult'?: CardResult;
     'cVCResult'?: CardResult;
+    'isInDispute'?: boolean;
+    'disputeStatus'?: DisputeStatus;
 
     static discriminator: string | undefined = undefined;
 
@@ -78,6 +81,16 @@ export class TransactionResult {
             "name": "cVCResult",
             "baseName": "CVCResult",
             "type": "CardResult"
+        },
+        {
+            "name": "isInDispute",
+            "baseName": "IsInDispute",
+            "type": "boolean"
+        },
+        {
+            "name": "disputeStatus",
+            "baseName": "DisputeStatus",
+            "type": "DisputeStatus"
         }    ];
 
     static getAttributeTypeMap() {

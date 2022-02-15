@@ -17,8 +17,9 @@ export class PgtlDto {
     'id': number;
     'result': boolean;
     'traceId'?: string;
-    'createdDate'?: string;
+    'captureId'?: string;
     'isChargeback': boolean;
+    'createdDate'?: string;
     'transactionId'?: string;
     'installmentPlanId'?: number;
     'completeResponseXml'?: string;
@@ -54,14 +55,19 @@ export class PgtlDto {
             "type": "string"
         },
         {
-            "name": "createdDate",
-            "baseName": "CreatedDate",
+            "name": "captureId",
+            "baseName": "CaptureId",
             "type": "string"
         },
         {
             "name": "isChargeback",
             "baseName": "IsChargeback",
             "type": "boolean"
+        },
+        {
+            "name": "createdDate",
+            "baseName": "CreatedDate",
+            "type": "string"
         },
         {
             "name": "transactionId",

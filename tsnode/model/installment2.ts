@@ -29,6 +29,7 @@ export class Installment2 {
     'transactionResults'?: Array<TransactionResult>;
     'cardDetails'?: CardData;
     'result'?: boolean;
+    'paymentMethod'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -92,6 +93,11 @@ export class Installment2 {
             "name": "result",
             "baseName": "Result",
             "type": "boolean"
+        },
+        {
+            "name": "paymentMethod",
+            "baseName": "PaymentMethod",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

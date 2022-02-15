@@ -13,6 +13,7 @@
 import { RequestFile } from '../api';
 import { CardData } from './cardData';
 import { ConsumerData } from './consumerData';
+import { Disputes } from './disputes';
 import { FraudCheck } from './fraudCheck';
 import { Installment2 } from './installment2';
 import { MerchantRef } from './merchantRef';
@@ -27,6 +28,7 @@ export class InstallmentPlan {
     'installmentPlanStatus'?: ReferenceEntityBase;
     'amount'?: Money;
     'outstandingAmount'?: Money;
+    'disputes'?: Disputes;
     'numberOfInstallments': number;
     'numberOfProcessedInstallments': number;
     'originalAmount'?: Money;
@@ -52,6 +54,8 @@ export class InstallmentPlan {
     'secureAuthorizations'?: Array<ReAuthorization>;
     'logoUrl'?: string;
     'isInAutoRetry': boolean;
+    'paymentMethod'?: string;
+    'allowCardUpdateOnSplititPortals': boolean;
 
     static discriminator: string | undefined = undefined;
 
@@ -75,6 +79,11 @@ export class InstallmentPlan {
             "name": "outstandingAmount",
             "baseName": "OutstandingAmount",
             "type": "Money"
+        },
+        {
+            "name": "disputes",
+            "baseName": "Disputes",
+            "type": "Disputes"
         },
         {
             "name": "numberOfInstallments",
@@ -199,6 +208,16 @@ export class InstallmentPlan {
         {
             "name": "isInAutoRetry",
             "baseName": "IsInAutoRetry",
+            "type": "boolean"
+        },
+        {
+            "name": "paymentMethod",
+            "baseName": "PaymentMethod",
+            "type": "string"
+        },
+        {
+            "name": "allowCardUpdateOnSplititPortals",
+            "baseName": "AllowCardUpdateOnSplititPortals",
             "type": "boolean"
         }    ];
 
